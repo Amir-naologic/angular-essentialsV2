@@ -1,7 +1,51 @@
-<div class="page-content" style="display: flex; align-items: center; flex-direction: column">
-  <div class="container">
-    <div class="box" appDraggableDirective>Box 1</div>
-    <div class="box" appDraggableDirective>Box 2</div>
-    <div class="box" appDraggableDirective>Box 3</div>
-  </div>
+<div class="page-content d-flex justify-content-center align-items-center flex-column">
+    <div class="form w-50 p-4 border rounded shadow-lg mb-4">
+        <h2 class="text-center mb-4">Create Account</h2>
+        <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                        type="password"
+                        formControlName="password"
+                        class="form-control"
+                        id="password"
+                        placeholder="Enter password"
+                />
+                <div *ngIf="passwordForm.get('password')?.errors?.['required']" class="text-danger mt-2">
+                    Password is required
+                </div>
+                <div *ngIf="passwordForm.get('password')?.errors?.['minlength']" class="text-danger mt-2">
+                    Password must be at least 4 characters
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input
+                        type="password"
+                        formControlName="confirmPassword"
+                        class="form-control"
+                        id="confirmPassword"
+                        placeholder="Confirm password"
+                />
+                <div *ngIf="passwordForm.get('confirmPassword')?.errors?.['required']" class="text-danger mt-2">
+                    Confirm password is required
+                </div>
+            </div>
+
+            <div *ngIf="passwordMismatch" class="text-danger mb-3">
+                <strong>Passwords do not match!</strong>
+            </div>
+
+            <button [disabled]="passwordForm.invalid" type="submit" class="btn btn-primary w-100">
+                Submit
+            </button>
+        </form>
+    </div>
+    <div class="container">
+        <div class="box" appDraggableDirective>Box 1</div>
+        <div class="box" appDraggableDirective>Box 2</div>
+        <div class="box" appDraggableDirective>Box 3</div>
+    </div>
 </div>
+
