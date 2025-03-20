@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DraggableDirective } from "../../shared/Draggable.directive";
+import { TranslateValidationErrorsPipe } from "../../shared/TranslateValidationErrors.pipe";
 import {
   AbstractControl,
   FormGroup,
@@ -30,7 +31,7 @@ export const MatchingValuesValidator = (password: string, confirmPass: string): 
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, DraggableDirective, ReactiveFormsModule],
+  imports: [CommonModule, DraggableDirective, ReactiveFormsModule, TranslateValidationErrorsPipe],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
@@ -42,7 +43,7 @@ export class AboutComponent {
    */
   passwordForm: FormGroup = new FormGroup({
     password: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    confirmPassword: new FormControl('', [Validators.required])
+    confirmPassword: new FormControl('', [Validators.required]),
   }, [MatchingValuesValidator('password', 'confirmPassword')]);
 
   /**
@@ -50,12 +51,5 @@ export class AboutComponent {
    */
   public onSubmit(): void {
     console.log(this.passwordForm.value);
-  }
-
-  /**
-   * Getter to check if the passwords do not match.
-   */
-  public get passwordMismatch(): boolean {
-    return this.passwordForm.hasError('valuesMismatch');
   }
 }

@@ -1,6 +1,6 @@
 <div class="page-content d-flex justify-content-center align-items-center flex-column">
     <div class="form w-50 p-4 border rounded shadow-lg mb-4">
-        <h2 class="text-center mb-4">Create Account</h2>
+        <h2 class="text-center mb-4">Confirm Password</h2>
         <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
@@ -11,11 +11,8 @@
                         id="password"
                         placeholder="Enter password"
                 />
-                <div *ngIf="passwordForm.get('password')?.errors?.['required']" class="text-danger mt-2">
-                    Password is required
-                </div>
-                <div *ngIf="passwordForm.get('password')?.errors?.['minlength']" class="text-danger mt-2">
-                    Password must be at least 4 characters
+                <div *ngIf="passwordForm.get('password')?.errors && passwordForm.get('password')?.touched" class="text-danger mt-2">
+                    {{ passwordForm.get('password')?.errors | translateValidationErrorsPipe }}
                 </div>
             </div>
 
@@ -28,13 +25,12 @@
                         id="confirmPassword"
                         placeholder="Confirm password"
                 />
-                <div *ngIf="passwordForm.get('confirmPassword')?.errors?.['required']" class="text-danger mt-2">
-                    Confirm password is required
+                <div *ngIf="passwordForm.get('confirmPassword')?.errors && passwordForm.get('confirmPassword')?.touched" class="text-danger mt-2">
+                    {{ passwordForm.get('confirmPassword')?.errors | translateValidationErrorsPipe }}
                 </div>
             </div>
-
-            <div *ngIf="passwordMismatch" class="text-danger mb-3">
-                <strong>Passwords do not match!</strong>
+            <div *ngIf="passwordForm.errors?.['valuesMismatch']" class="text-danger mt-2">
+                {{ passwordForm.errors | translateValidationErrorsPipe }}
             </div>
 
             <button [disabled]="passwordForm.invalid" type="submit" class="btn btn-primary w-100">
