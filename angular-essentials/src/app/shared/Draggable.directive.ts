@@ -1,4 +1,4 @@
-import { Directive, HostListener, ElementRef } from '@angular/core';
+import { Directive, HostListener, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[appDraggableDirective]',
@@ -12,24 +12,25 @@ export class DraggableDirective {
   /**
    * Stores the initial mouse X and Y coordinates.
    */
-  public startX = 0;
-  public startY = 0;
+  public start = {
+    posX: 0,
+    posY: 0
+  };
 
   /**
    * Initial X and Y position of the element.
    */
-  public initialElementX = 0;
-  public initialElementY = 0;
-
-  constructor(private el: ElementRef) {}
+  public initialElement = {
+    x: 0,
+    y: 0
+  };
 
   /**
-   * Retrieves the container element.
+   * Reference to the container element
    */
-  private get container(): HTMLElement | null {
-    return this.el.nativeElement ? this.el.nativeElement?.closest('.container') : null;
-  }
+  @Input() appDraggableDirective!: HTMLElement;
 
+  constructor(private el: ElementRef) {}
   /**
    * Sets up initial mouse and element position for dragging.
    */
@@ -45,12 +46,12 @@ export class DraggableDirective {
     this.draggingStarted = true;
 
     // -->Get: starting mouse coordinates for X and Y
-    this.startX = event.clientX;
-    this.startY = event.clientY;
+    this.start.posX = event.clientX;
+    this.start.posY = event.clientY;
 
     // -->Get: initial X and Y positions of the element
-    this.initialElementX = element.offsetLeft;
-    this.initialElementY = element.offsetTop;
+    this.initialElement.x = element.offsetLeft;
+    this.initialElement.y = element.offsetTop;
 
 
     element.style.position = 'absolute';
@@ -68,19 +69,18 @@ export class DraggableDirective {
     }
 
     const element = this.el.nativeElement;
-    const container = this.container;
 
     // -->Check: if element and container are available
-    if (!element || !container){
+    if (!element || !this.appDraggableDirective){
       return
     }
 
     // -->Get: calculate the difference in mouse movement
-    const deltaX = event.clientX - this.startX;
-    const deltaY = event.clientY - this.startY;
+    const deltaX = event.clientX - this.start.posX;
+    const deltaY = event.clientY - this.start.posY;
 
     // -->Get: container & elements position and size
-    const containerRect = container.getBoundingClientRect();
+    const containerRect = this.appDraggableDirective.getBoundingClientRect();
     const elementRect = element.getBoundingClientRect();
 
     // -->Calculate: maximum boundaries to keep the element within the container
@@ -88,8 +88,8 @@ export class DraggableDirective {
     const maxTop = containerRect.height - elementRect.height - 20;
 
     // -->Bound: ensure the element stays within the container's left and top boundaries
-    const boundedLeft = Math.max(0, Math.min(this.initialElementX + deltaX, maxLeft));
-    const boundedTop = Math.max(0, Math.min(this.initialElementY + deltaY, maxTop));
+    const boundedLeft = Math.max(0, Math.min(this.initialElement.x + deltaX, maxLeft));
+    const boundedTop = Math.max(0, Math.min(this.initialElement.y + deltaY, maxTop));
 
     // -->Set: update the position of the element based on the calculated bounded values
     element.style.left = `${boundedLeft}px`;

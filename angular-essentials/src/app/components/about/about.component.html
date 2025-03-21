@@ -29,19 +29,16 @@
                     {{ passwordForm.get('confirmPassword')?.errors | translateValidationErrorsPipe }}
                 </div>
             </div>
-            <div *ngIf="passwordForm.errors?.['valuesMismatch']" class="text-danger mt-2">
-                {{ passwordForm.errors | translateValidationErrorsPipe }}
-            </div>
 
             <button [disabled]="passwordForm.invalid" type="submit" class="btn btn-primary w-100">
                 Submit
             </button>
         </form>
     </div>
-    <div class="container">
-        <div class="box" appDraggableDirective>Box 1</div>
-        <div class="box" appDraggableDirective>Box 2</div>
-        <div class="box" appDraggableDirective>Box 3</div>
+    <div class="container" #container>
+        <div class="box" [appDraggableDirective]="container">Box 1</div>
+        <div class="box" [appDraggableDirective]="container">Box 2</div>
+        <div class="box" [appDraggableDirective]="container">Box 3</div>
     </div>
 </div>
 
