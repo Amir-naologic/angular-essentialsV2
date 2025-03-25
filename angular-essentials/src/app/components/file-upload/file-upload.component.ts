@@ -17,8 +17,8 @@ interface FileUploadState {
 @Component({
   selector: 'app-file-upload',
   imports: [CommonModule],
-  templateUrl: './FileUpload.component.html',
-  styleUrl: './FileUpload.component.scss',
+  templateUrl: './file-upload.component.html',
+  styleUrl: './file-upload.component.scss',
 })
 export class FileUploadComponent {
   /**

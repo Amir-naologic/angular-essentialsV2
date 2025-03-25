@@ -34,27 +34,22 @@ export interface Brewery {
   styleUrl: './reactive-search.component.scss',
 })
 export class ReactiveSearchComponent {
-
   /**
    * Observable containing brewery data based on search results
    */
   public data$: Observable<Brewery[]>;
-
   /**
    * Search input control bound to the input field
    */
   public searchControl: FormControl<string> = new FormControl('', { nonNullable: true });
-
   /**
    * Boolean to control loading state during API call
    */
   public isLoading: boolean = false;
-
   /**
    * Holds any error message to display on UI
    */
   public errorMessage: string = '';
-
   constructor(private http: HttpClient) {
     /**
      * Subscribe to searchControl value changes

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DraggableDirective } from "../../shared/Draggable.directive";
-import { TranslateValidationErrorsPipe } from "../../shared/TranslateValidationErrors.pipe";
+import { DraggableDirective } from '../../shared/draggable.directive';
+import { TranslateValidationErrorsPipe } from "../../shared/translate-validation-errors.pipe";
 import {
   AbstractControl,
   FormGroup,
