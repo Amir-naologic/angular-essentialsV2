@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject, from, Observable, of, Subject } from 'rxjs';
+import {BehaviorSubject, from, Observable, of, Subject, Subscription} from 'rxjs';
 import { catchError, finalize, mergeMap, takeUntil, tap } from 'rxjs/operators';
 
 /**
@@ -24,7 +24,7 @@ export class FileUploadComponent {
   /**
    * Map containing all uploads with file name as key
    */
-  private uploads = new Map<string, FileUploadState>();
+  private uploads: FileUploadState[] = [];
 
   /**
    * Emits the list of file upload states to the UI
@@ -71,7 +71,7 @@ export class FileUploadComponent {
     };
 
     // -->Store: upload state and notify UI
-    this.uploads.set(file.name, fileState);
+    this.uploads.push(fileState);
     this.updateStates();
 
     // -->Upload: simulate or perform actual upload
@@ -107,7 +107,7 @@ export class FileUploadComponent {
    */
   public cancelUpload(fileName: string): void {
     // -->Find: corresponding upload state
-    const fileState = this.uploads.get(fileName);
+    const fileState = this.uploads.find(f => f.name === fileName);
 
     if (fileState) {
       // -->Emit: signal to cancel and close stream

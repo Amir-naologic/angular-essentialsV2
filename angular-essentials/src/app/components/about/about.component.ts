@@ -28,28 +28,26 @@ export function MatchingValuesValidator(controlName: string, matchingControlName
     // -->Check: if both fields are not a match
     if (control?.value !== matchingControl?.value) {
       // -->Set: valuesMismatch error if values do not match
-      matchingControl?.setErrors({ valuesMismatch: true });
-      return { valuesMismatch: true };
+      matchingControl?.setErrors({valuesMismatch: true});
+    }else{
+      matchingControl?.setErrors(null);
     }
 
     // -->Clear: valuesMismatch error if values match
-    matchingControl?.setErrors(null);
     return null;
   };
 }
-
 @Component({
   selector: 'app-about',
   imports: [CommonModule, DraggableDirective, ReactiveFormsModule, TranslateValidationErrorsPipe],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
-
 export class AboutComponent {
   /**
    * Init the password form group with password and confirmPassword controls.
    */
-  passwordForm: FormGroup = new FormGroup({
+  public passwordForm: FormGroup = new FormGroup({
     password: new FormControl('', [Validators.required, Validators.minLength(4)]),
     confirmPassword: new FormControl('', [Validators.required]),
   },{ validators: MatchingValuesValidator('password', 'confirmPassword') });

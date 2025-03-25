@@ -1,8 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import {debounceTime, distinctUntilChanged, Observable, of, startWith, switchMap} from "rxjs";
-import { FormControl, ReactiveFormsModule } from "@angular/forms";
+import {
+  debounceTime,
+  distinctUntilChanged,
+  Observable,
+  of,
+  startWith,
+  Subscription,
+  switchMap,
+  throttleTime
+} from "rxjs";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import { catchError, tap } from "rxjs/operators";
 
 /**
@@ -37,11 +46,13 @@ export class ReactiveSearchComponent {
   /**
    * Observable containing brewery data based on search results
    */
-  public data$: Observable<Brewery[]>;
+  public data: Brewery[] = [];
   /**
    * Search input control bound to the input field
    */
-  public searchControl: FormControl<string> = new FormControl('', { nonNullable: true });
+  public searchForm: FormGroup = new FormGroup({
+    search: new FormControl('', { nonNullable: true }),
+  })
   /**
    * Boolean to control loading state during API call
    */
@@ -50,24 +61,25 @@ export class ReactiveSearchComponent {
    * Holds any error message to display on UI
    */
   public errorMessage: string = '';
-  constructor(private http: HttpClient) {
-    /**
-     * Subscribe to searchControl value changes
-     */
-    this.data$ = this.searchControl.valueChanges.pipe(
-        /**
-         * -->Emit: empty string immediately on component load
-         */
+  /**
+   * -->Track: all manual subscriptions
+   */
+  private subs: Subscription = new Subscription();
+  /**
+   * -->Inject: HttpClient service for making API requests
+   */
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+
+    const sub = (this.searchForm.get('search') as FormControl<string>).valueChanges.pipe(
+        // -->Emit: empty string immediately on component load
         startWith(""),
 
-        /**
-         * -->Wait: 300ms after user stops typing before emitting
-         */
+        // -->Wait: 300ms after user stops typing before emitting
         debounceTime(300),
 
-        /**
-         * -->Ignore: values that are the same as the previous one
-         */
+        // -->Ignore: values that are the same as the previous one
         distinctUntilChanged(),
 
         // -->Set: loading and reset error
@@ -78,19 +90,34 @@ export class ReactiveSearchComponent {
 
         // -->Fetch: search results via HTTP request
         switchMap((value: string): Observable<Brewery[]> =>
-              this.getAll(value).pipe(
+            this.getAll(value).pipe(
 
-                  // -->Handle: errors gracefully and return empty array
-                  catchError((err): Observable<Brewery[]> => {
-                    this.errorMessage = err.message || 'something went wrong';
-                    return of([]);
-                  }),
+                // -->Handle: errors gracefully and return empty array
+                catchError((err): Observable<Brewery[]> => {
+                  this.errorMessage = err.message || 'something went wrong';
+                  return of([]);
+                }),
 
-                  // -->Set: loading to false after response or error
-                  tap(() => (this.isLoading = false)),
-              )
+                // -->Set: loading to false after response or error
+                tap(() => (this.isLoading = false)),
+            )
         ),
-    );
+
+        // -->Subscribe: to search observable and update local data array
+    ).subscribe((breweries: Brewery[]) => {
+      this.data = breweries;
+    });
+
+    this.subs.add(sub);
+  }
+
+  /**
+   * -->Unsubscribe: from all active subscriptions
+   */
+  ngOnDestroy(): void {
+    if(this.subs){
+      this.subs.unsubscribe();
+    }
   }
 
   /**
