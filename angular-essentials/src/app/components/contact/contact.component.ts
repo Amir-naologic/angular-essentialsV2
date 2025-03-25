@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveSearchComponent } from "../reactive-search/reactive-search.component";
+import { ReactiveSearchComponent } from "../../shared/reactive-search/reactive-search.component";
 
 @Component({
   selector: 'app-contact',

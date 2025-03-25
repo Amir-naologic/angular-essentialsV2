@@ -71,7 +71,6 @@ export class ReactiveSearchComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-
     const sub = (this.searchForm.get('search') as FormControl<string>).valueChanges.pipe(
         // -->Emit: empty string immediately on component load
         startWith(""),
