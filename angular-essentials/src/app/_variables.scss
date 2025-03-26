@@ -1,0 +1,45 @@
+// *****************************************************
+// Base Colors
+$base-color: #c6538c;
+$base-text-color: #1e09e7;
+$white: #fff;
+$black: #000;
+
+// *****************************************************
+// Base Typography
+$font-primary: "Roboto", sans-serif;
+$font-secondary: 'Clash Grotesk', sans-serif;
+$font-size-sm: 0.850rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+
+// *****************************************************
+// Base Typography
+$spacing-sm: 0.5rem;
+$spacing-md: 0.75rem;
+$spacing-lg: 1rem;
+
+// *****************************************************
+// Base Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 767px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// *****************************************************
+// Converts pixels to rem
+@function pixelToRem($px, $base: 16){
+  @return ($px / $base) * 1rem;
+}
+
+// *****************************************************
+// Converts spacing keys to rem values
+@function spacing($size: sm) {
+  $map: (
+          sm: $spacing-sm,
+          md: $spacing-md,
+          lg: $spacing-lg
+  );
+
+  @return map-get($map, $size);
+}
