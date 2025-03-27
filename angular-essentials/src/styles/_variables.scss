@@ -4,6 +4,7 @@ $base-color: #c6538c;
 $base-text-color: #1e09e7;
 $white: #fff;
 $black: #000;
+$gray-border: #ccc;
 
 // *****************************************************
 // Base Typography
@@ -42,21 +43,4 @@ $breakpoint-xl: 1200px;
   );
 
   @return map-get($map, $size);
-}
-
-// *****************************************************
-// Themes
-$themes: (
-        light: (
-                text-color: #222,
-                background-color: #fff
-        ),
-        dark: (
-                text-color: #eee,
-                background-color: #121212
-        )
-);
-
-@function theme($key, $mode: light) {
-  @return map-get(map-get($themes, $mode), $key);
 }

@@ -9,9 +9,9 @@ export class TranslateValidationErrorsPipe implements PipeTransform {
   /**
    * Transforms validation errors into dynamic error messages.
    */
-  transform(errors: ValidationErrors | null | undefined, errorMessages?: { [key: string]: string }): string {
+  public transform(errors: ValidationErrors | null | undefined, errorMessages?: { [key: string]: string }): string {
     // -->Default: Error messages object
-    const errorMapping: { [key: string]: string | ((errors: ValidationErrors) => string) } = {
+    let errorMapping: { [key: string]: string | ((errors: ValidationErrors) => string) } = {
       required: 'Field is required',
       minlength: (errors: ValidationErrors) => `Minimum length is ${errors['minlength'].requiredLength}`,
       valuesMismatch: 'Passwords do not match',
@@ -22,14 +22,8 @@ export class TranslateValidationErrorsPipe implements PipeTransform {
       return '';
     }
 
-    // -->Custom: errors messages if provided
-    if (errorMessages) {
-      for (const key in errors) {
-        if (errors.hasOwnProperty(key) && errorMessages[key]) {
-          return errorMessages[key];
-        }
-      }
-    }
+    // -->Merge: errors
+    errorMapping = {...errorMapping, ...errorMessages}
 
     // -->Check: if the error exists in the predefined error mapping
     for (const key in errors) {

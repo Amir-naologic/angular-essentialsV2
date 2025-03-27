@@ -28,9 +28,12 @@ export class DraggableDirective {
   /**
    * Reference to the container element
    */
-  @Input() appDraggableDirective!: HTMLElement;
+  @Input() public appDraggableDirective!: HTMLElement;
+
 
   constructor(private el: ElementRef) {}
+
+
   /**
    * Sets up initial mouse and element position for dragging.
    */

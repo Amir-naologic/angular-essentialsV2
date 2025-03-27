@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DraggableDirective } from '../../shared/draggable.directive';
-import { TranslateValidationErrorsPipe } from "../../shared/translate-validation-errors.pipe";
+import { DraggableDirective } from '../../shared/directives/draggable.directive';
+import { TranslateValidationErrorsPipe } from "../../shared/pipes/translate-validation-errors.pipe";
 import {
   AbstractControl,
   FormGroup,
@@ -50,7 +50,7 @@ export class AboutComponent {
   public passwordForm: FormGroup = new FormGroup({
     password: new FormControl('', [Validators.required, Validators.minLength(4)]),
     confirmPassword: new FormControl('', [Validators.required]),
-  },{ validators: MatchingValuesValidator('password', 'confirmPassword') });
+  }, { validators: MatchingValuesValidator('password', 'confirmPassword') });
 
   /**
    * Logs the form.

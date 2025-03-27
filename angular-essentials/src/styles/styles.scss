@@ -1,0 +1,14 @@
+@import '_themes.scss';
+
+// *****************************************************
+// Body Light Mode
+body {
+  border: 1px solid red;
+  @include theme($light-theme);
+}
+
+// *****************************************************
+// Dark Mode Body
+body.dark-mode {
+  @include theme($dark-theme);
+}

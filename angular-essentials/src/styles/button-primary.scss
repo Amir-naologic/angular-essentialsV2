@@ -1,0 +1,11 @@
+@import 'mixins';
+
+// *****************************************************
+// Primary reusable button
+.button-primary{
+  border: 1px solid red;
+  @include flex-center;
+  @include margin-bottom(lg);
+  @include padding(top, lg);
+  @include padding(bottom, lg);
+}

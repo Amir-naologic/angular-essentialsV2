@@ -65,12 +65,12 @@ export class ReactiveSearchComponent {
    * -->Track: all manual subscriptions
    */
   private subs: Subscription = new Subscription();
-  /**
-   * -->Inject: HttpClient service for making API requests
-   */
+
+
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
+
+  public ngOnInit(): void {
     const sub = (this.searchForm.get('search') as FormControl<string>).valueChanges.pipe(
         // -->Emit: empty string immediately on component load
         startWith(""),
@@ -113,7 +113,7 @@ export class ReactiveSearchComponent {
   /**
    * -->Unsubscribe: from all active subscriptions
    */
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if(this.subs){
       this.subs.unsubscribe();
     }

@@ -1,4 +1,4 @@
-@use './_variables.scss' as *;
+@import 'variables';
 
 // *****************************************************
 // Flexbox layout: center both vertically and horizontally
@@ -17,21 +17,18 @@
 
 // *****************************************************
 // margin-bottom based on spacing scale
-// Example: @include margin-bottom(md);
 @mixin margin-bottom($size: sm) {
   margin-bottom: spacing($size);
 }
 
 // *****************************************************
 // margin-top based on spacing scale
-// Example: @include margin-top(sm);
 @mixin margin-top($size: sm) {
   margin-top: spacing($size);
 }
 
 // *****************************************************
 // Padding based on direction and spacing scale
-// Example: @include padding(vertical, sm);
 @mixin padding($direction: horizontal, $size: sm) {
   @if ($direction == horizontal) {
     padding-left: spacing($size);
