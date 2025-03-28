@@ -1,6 +1,16 @@
 @import '_themes.scss';
 
 // *****************************************************
+// Root variables
+:root {
+  --gray-border: #ccc;
+  --black: #000;
+  --white: #fff;
+  --base-color: #3498db;
+  --font-secondary: 'Segoe UI', sans-serif;
+}
+
+// *****************************************************
 // Body Light Mode
 body {
   border: 1px solid red;
