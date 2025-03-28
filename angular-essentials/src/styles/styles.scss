@@ -8,7 +8,7 @@ body {
 }
 
 // *****************************************************
-// Dark Mode Body
+// Body Dark Mode
 body.dark-mode {
   @include theme($dark-theme);
 }

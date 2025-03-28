@@ -27,7 +27,7 @@ export function MatchingValuesValidator(controlName: string, matchingControlName
 
     // -->Check: if both fields are not a match
     if (control?.value !== matchingControl?.value) {
-      // -->Set: valuesMismatch error if values do not match
+      // -->Set: valuesMismatch error
       matchingControl?.setErrors({valuesMismatch: true});
     }else{
       matchingControl?.setErrors(null);

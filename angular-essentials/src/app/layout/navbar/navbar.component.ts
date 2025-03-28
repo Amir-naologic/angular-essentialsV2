@@ -13,7 +13,7 @@ export class NavbarComponent {
   /**
    * Tracks dark mode.
    */
-  isDarkMode = false;
+  public isDarkMode: boolean = false;
 
 
   constructor(private themeService: ThemeService) {}

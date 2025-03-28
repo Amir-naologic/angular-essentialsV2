@@ -17,7 +17,7 @@ import { catchError, tap } from "rxjs/operators";
 /**
  * Interface for each brewery object returned by the API
  */
-export interface Brewery {
+interface Brewery {
   id: string;
   name: string;
   brewery_type: string;

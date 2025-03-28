@@ -7,24 +7,21 @@ export class DraggableDirective {
   /**
    * Keeps track of whether the drag action has started.
    */
-  public draggingStarted = false;
-
+  public draggingStarted: boolean = false;
   /**
    * Stores the initial mouse X and Y coordinates.
    */
-  public start = {
+  public start: { posX: number, posY: number } = {
     posX: 0,
     posY: 0
   };
-
   /**
    * Initial X and Y position of the element.
    */
-  public initialElement = {
+  public initialElement: { x: number, y: number } = {
     x: 0,
     y: 0
   };
-
   /**
    * Reference to the container element
    */

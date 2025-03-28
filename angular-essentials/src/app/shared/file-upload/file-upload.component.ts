@@ -25,17 +25,14 @@ export class FileUploadComponent {
    * Map containing all uploads with file name as key
    */
   private uploads: FileUploadState[] = [];
-
   /**
    * Emits the list of file upload states to the UI
    */
   private fileUploadStatesSubject = new BehaviorSubject<FileUploadState[]>([]);
-
   /**
    * Observable stream of file upload states
    */
   public fileUploadStates$ = this.fileUploadStatesSubject.asObservable();
-
   /**
    * Triggered when user selects files via input
    */
@@ -74,7 +71,7 @@ export class FileUploadComponent {
     this.uploads.push(fileState);
     this.updateStates();
 
-    // -->Upload: simulate or perform actual upload
+    // -->Upload: perform simulated upload
     return this.mockUpload().pipe(
         // -->Cancel: allow termination when cancel$ emits
         takeUntil(cancel$),
