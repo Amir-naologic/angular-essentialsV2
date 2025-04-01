@@ -1,0 +1,130 @@
+@import '../../../../styles/variables';
+
+// *****************************************************
+// Board Header
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .board-header__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 23px;
+
+    .board-header__title {
+      font-family: var(--font-primary), sans-serif;
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-xl);
+      font-weight: 500;
+      color: var(--text-heading);
+      margin: 0;
+    }
+
+    .board-header__subtitle {
+      font-family: var(--font-primary), sans-serif;
+      font-size: var(--font-size-sm);
+      color: var(--text-muted);
+    }
+
+    .board-header__divider {
+      width: 1px;
+      height: 17px;
+      background-color: var(--text-heading);
+      border-radius: 999px;
+    }
+  }
+
+  .board-header__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+
+    .board-header__left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+  }
+
+  .board-header__views {
+    display: flex;
+    gap: 8px;
+
+    // *****************************************************
+    // View Buttons
+    .view-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px 5px;
+      border-radius: 5px;
+      background: var(--view-btn-bg);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 6px rgba($shadow-color-subtle, 0.3);
+      font-family: var(--font-view-btn), sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+
+      img {
+        width: 14px;
+        height: 13px;
+      }
+
+      .view-btn--active {
+        background: var(--primary-bg-active);
+        color: var(--primary-color);
+      }
+
+      &:hover {
+        background: var(--view-btn-bg-hover);
+      }
+    }
+  }
+
+  // *****************************************************
+  // Action Buttons
+  .board-header__right {
+    display: flex;
+    gap: 8px;
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: none;
+      background: var(--white);
+      border-radius: 7px;
+      cursor: pointer;
+      box-shadow: var(--shadow-action-btn);
+      font-weight: 500;
+      font-size: 13px;
+      padding: 8px;
+
+      img {
+        width: var(--font-size-sm);
+        height: var(--font-size-sm);
+      }
+
+      &:hover {
+        background: var(--gray-lightest);
+      }
+    }
+  }
+}

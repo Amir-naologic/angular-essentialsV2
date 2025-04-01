@@ -4,16 +4,36 @@
 // Root variables
 :root {
   --gray-border: #ccc;
-  --black: #000;
+  --gray-light: #f6f6f9;
+  --gray-light-hover: #e2e2f2;
+  --gray-dark: #888;
+  --primary-bg-active: #ebe9ff;
+  --primary-color: #3E40DB;
   --white: #fff;
-  --base-color: #3498db;
+  --black: #000;
+  --gray-lightest: #f5f7fa;
+  --text-muted: #687196;
+  --text-heading: #030929;
+
   --font-secondary: 'Segoe UI', sans-serif;
+  --font-primary: 'Circular Std', sans-serif;
+  --font-size-xl: 24px;
+  --font-size-sm: 14px;
+
+  --view-btn-bg: rgba(241, 243, 248, 0.75);
+  --view-btn-bg-hover: rgba(225, 227, 233, 0.75);
+  --card-config-gray-color: #F1F3F8;
+  --card-config-divider: #E6EBF0;
+  --card-config-border-color: rgba(104, 113, 150, 0.1);
+  --card-config-box-shadow: 0 4.5px 5px -1px rgba(216, 220, 235, 1), 0 2.5px 3px -1.5px rgba(200, 207, 233, 1);
+
+  --shadow-action-btn: 0 1px 3px 0 var(--gray-border);
+  --line-height-xl: 34px;
 }
 
 // *****************************************************
 // Body Light Mode
 body {
-  border: 1px solid red;
   @include theme($light-theme);
 }
 
