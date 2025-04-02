@@ -9,11 +9,14 @@
   --gray-dark: #888;
   --primary-bg-active: #ebe9ff;
   --primary-color: #3E40DB;
+  --hover-primary-color: #2f32cc;
   --white: #fff;
   --black: #000;
   --gray-lightest: #f5f7fa;
   --text-muted: #687196;
   --text-heading: #030929;
+  --light-purple-border-color: #AAAFFF;
+  --status-badge-color: #4a4e69;
 
   --font-secondary: 'Segoe UI', sans-serif;
   --font-primary: 'Circular Std', sans-serif;
@@ -26,6 +29,7 @@
   --card-config-divider: #E6EBF0;
   --card-config-border-color: rgba(104, 113, 150, 0.1);
   --card-config-box-shadow: 0 4.5px 5px -1px rgba(216, 220, 235, 1), 0 2.5px 3px -1.5px rgba(200, 207, 233, 1);
+  --white-box-shadow:  0 1px 0.5px -1px rgba(216, 220, 235, 1), 0 1.5px 3px -1.5px rgba(200, 207, 233, 1);
 
   --shadow-action-btn: 0 1px 3px 0 var(--gray-border);
   --line-height-xl: 34px;
@@ -42,3 +46,13 @@ body {
 body.dark-mode {
   @include theme($dark-theme);
 }
+
+// *****************************************************
+// Default Text
+.default-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: 400;
+  font-family: var(--font-primary), sans-serif;
+}
+

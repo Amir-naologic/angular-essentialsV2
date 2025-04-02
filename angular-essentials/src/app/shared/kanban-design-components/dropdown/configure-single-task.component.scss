@@ -1,10 +1,9 @@
 // *****************************************************
 // Dropdown Menu Container
 .dropdown-menu-container {
-
   .dropdown-menu-custom {
     border-radius: 5px;
-    border: var(--card-config-border-color);
+    border: 1px solid var(--card-config-border-color);
     box-shadow: var(--card-config-box-shadow);
     background-color: var(--white);
     padding: 0.25rem 0;

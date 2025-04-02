@@ -1,0 +1,15 @@
+<div class="group-form">
+    <label class="group-form__label">Group name</label>
+
+    <input
+            type="text"
+            class="group-form__input"
+            placeholder="Overdu..."
+    />
+
+    <div class="group-form__colors">
+        <div class="color-swatch" *ngFor="let color of colors" [ngStyle]="{ backgroundColor: color }"></div>
+    </div>
+
+    <button class="group-form__save-btn">Save</button>
+</div>

@@ -9,22 +9,26 @@
 
     <div class="task-card">
         <div class="task-card__header">
-            <span class="task-card__title">Mega Electronix</span>
-            <div class="task-card__config" (click)="onToggleDropdown()">
-                <img src="assets/three_dots.svg" alt="More options" />
+            <span class="task-card__title default-text">Mega Electronix</span>
+            <div class="task-card__config-wrapper">
+                <div class="task-card__config" (click)="onToggleDropdown()">
+                    <img src="assets/three_dots.svg" alt="More options" />
+                </div>
+
+                <app-configure-single-task
+                    #dropdownCmp
+                    class="app-configure-single-task__component"
+                />
             </div>
         </div>
         <span class="task-card__amount">$32,213</span>
 
         <ul class="task-card__meta">
-            <li><img src="assets/box_check.svg" alt="Subtasks" /> 1/4 subtasks</li>
-            <li><img src="assets/person.svg" alt="Unpaid" /> Unpaid</li>
-            <li><img src="assets/person.svg" alt="Florin Galan" /> Florin Galan</li>
-            <li><img src="assets/calendar.svg" alt="Date" /> September 9, 2024</li>
-            <li><img src="assets/person.svg" alt="Urgent" /> Urgent</li>
+            <li class="default-text"><img src="assets/box_check.svg" alt="Subtasks" /> 1/4 subtasks</li>
+            <li class="default-text"><img src="assets/person.svg" alt="Unpaid" /> Unpaid</li>
+            <li class="default-text"><img src="assets/person.svg" alt="Florin Galan" /> Florin Galan</li>
+            <li class="default-text"><img src="assets/calendar.svg" alt="Date" /> September 9, 2024</li>
+            <li class="default-text"><img src="assets/person.svg" alt="Urgent" /> Urgent</li>
         </ul>
     </div>
-
-    <app-configure-single-task #dropdownCmp>
-    </app-configure-single-task>
 </div>

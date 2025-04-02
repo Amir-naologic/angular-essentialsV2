@@ -1,0 +1,57 @@
+<div class="task-row">
+    <div class="task-insertion">
+        <div class="status-badge">
+            <img src="assets/arrow_left_right.svg" alt="Icon" class="status-badge__icon" />
+            <span class="status-badge__text">Unpaid</span>
+            <span class="default-text">4</span>
+        </div>
+
+        <div class="column-container">
+            <div class="column-header">
+                <div>
+                    <input class="column-header__title" type="text" placeholder="Unpaid" />
+                    <span class="default-text">4</span>
+                </div>
+
+                <div class="column-header__actions">
+                    <button class="column-header__icon" style="margin-right: 6px;">
+                        <img src="assets/arrow_left_right.svg" alt="Back" class="column-header__icon-img" />
+                    </button>
+
+                    <button class="column-header__icon">
+                        <img src="assets/three_dots.svg" alt="Options" style="width: 20px; height: 6px;" />
+                    </button>
+                </div>
+            </div>
+
+            <div class="column-add-task">
+                <img src="assets/plus.svg" alt="Add" />
+                <span class="default-text">Add task</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="group-buttons">
+        <div class="group-button-wrapper" #wrapper1>
+            <button class="add-group-button default-text" (click)="openForm(1)">
+                <span class="add-group-button__icon">+</span>
+                <span class="add-group-button__text">Add group</span>
+            </button>
+
+            <div class="group-form-position" *ngIf="activeForm === 1">
+                <app-add-group></app-add-group>
+            </div>
+        </div>
+
+        <div class="group-button-wrapper" #wrapper2>
+            <button class="add-group-button default-text" (click)="openForm(2)">
+                <span class="add-group-button__icon">+</span>
+                <span class="add-group-button__text">Add group</span>
+            </button>
+
+            <div class="group-form-position" *ngIf="activeForm === 2">
+                <app-add-group></app-add-group>
+            </div>
+        </div>
+    </div>
+</div>
