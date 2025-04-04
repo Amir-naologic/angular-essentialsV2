@@ -1,34 +1,47 @@
-<div class="task-column">
-    <div class="task-column__header">
+<div class="task-column radius-xl nao-p-3 flex flex-col align-center">
+    <div class="flex space-between nao-px-2 nao-w-100">
         <span class="task-column__title">Unpaid</span>
-        <span class="task-column__count">4</span>
-        <div class="column-dots">
-            <img src="assets/three_dots.svg" alt="More options" />
+        <span class="nao-text-muted text-md font-regular nao-ml-8">4</span>
+        <div class="pointer flex align-center center-x nao-p-2 radius-sm nao-h-24 nao-w-24">
+            <img src="assets/three_dots.svg" alt="More options" class="nao-w-20 nao-h-6 nao-text-muted" />
         </div>
     </div>
 
-    <div class="task-card">
-        <div class="task-card__header">
+    <div class="task-card radius-lg nao-py-2 nao-px-3 flex flex-col">
+        <div class="task-card__header flex space-between align-center">
             <span class="task-card__title default-text">Mega Electronix</span>
-            <div class="task-card__config-wrapper">
-                <div class="task-card__config" (click)="onToggleDropdown()">
+            <div class="task-card__config-wrapper relative inline-block">
+                <div class="nao-bg-gray-card radius-sm nao-h-24 nao-w-24 pointer flex align-center center-x"
+                     (click)="onToggleDropdown()">
                     <img src="assets/three_dots.svg" alt="More options" />
                 </div>
 
                 <app-configure-single-task
                     #dropdownCmp
-                    class="app-configure-single-task__component"
+                    class="app-configure-single-task__component absolute"
                 />
             </div>
         </div>
-        <span class="task-card__amount">$32,213</span>
+        <span class="text-md nao-text-muted nao-mt-1 nao-mb-3">$32,213</span>
 
-        <ul class="task-card__meta">
-            <li class="default-text"><img src="assets/box_check.svg" alt="Subtasks" /> 1/4 subtasks</li>
-            <li class="default-text"><img src="assets/person.svg" alt="Unpaid" /> Unpaid</li>
-            <li class="default-text"><img src="assets/person.svg" alt="Florin Galan" /> Florin Galan</li>
-            <li class="default-text"><img src="assets/calendar.svg" alt="Date" /> September 9, 2024</li>
-            <li class="default-text"><img src="assets/person.svg" alt="Urgent" /> Urgent</li>
+        <ul class="task-card__meta flex flex-col list-style-none nao-w-100 relative">
+            <li
+                    class="dropdown-wrapper relative pointer"
+                    *ngFor="let item of menuItems"
+                    (click)="toggleDropdown(item.key)"
+            >
+                <div class="default-text nao-gap-6 nao-pt-1 nao-pb-1 nao-pl-2 flex align-center">
+                    <img [src]="item.icon" class="nao-w-14 nao-h-14" />
+                    {{ item.label }}
+                </div>
+
+                <app-single-task-information
+                        class="absolute radius-lg z-top nao-mt-1 nao-w-100"
+                        *ngIf="activeDropdown === item.key"
+                        [show]="true"
+                        [options]="item.options"
+                ></app-single-task-information>
+            </li>
         </ul>
     </div>
 </div>
