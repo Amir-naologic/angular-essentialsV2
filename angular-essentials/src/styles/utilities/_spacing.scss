@@ -6,29 +6,26 @@
 .nao-m-16  { margin: 16px; }
 .nao-m-20  { margin: 20px; }
 
-.nao-mt-1 { margin-top: 4px; }
-.nao-mt-2 { margin-top: 8px; }
-.nao-mt-3 { margin-top: 12px; }
-.nao-mt-4 { margin-top: 16px; }
-.nao-mt-5 { margin-top: 20px; }
-.nao-mt-6 { margin-top: 24px; }
-.nao-mt-8 { margin-top: 32px; }
+.nao-mt-4 { margin-top: 4px; }
+.nao-mt-8 { margin-top: 8px; }
+.nao-mt-12 { margin-top: 12px; }
+.nao-mt-16 { margin-top: 16px; }
+.nao-mt-20 { margin-top: 20px; }
 
-.nao-mb-1 { margin-bottom: 4px; }
-.nao-mb-2 { margin-bottom: 8px; }
-.nao-mb-3 { margin-bottom: 12px; }
-.nao-mb-4 { margin-bottom: 16px; }
-.nao-mb-5 { margin-bottom: 20px; }
-.nao-mb-6 { margin-bottom: 24px; }
-.nao-mb-8 { margin-bottom: 32px; }
+.nao-mb-4 { margin-bottom: 4px; }
+.nao-mb-8 { margin-bottom: 8px; }
+.nao-mb-12 { margin-bottom: 12px; }
+.nao-mb-16 { margin-bottom: 16px; }
+.nao-mb-20 { margin-bottom: 20px; }
 
-.nao-ml-1 { margin-left: 4px; }
-.nao-ml-2 { margin-left: 8px; }
-.nao-ml-3 { margin-left: 12px; }
-.nao-ml-4 { margin-left: 16px; }
-.nao-ml-5 { margin-left: 20px; }
-.nao-ml-6 { margin-left: 24px; }
-.nao-ml-8 { margin-left: 32px; }
+.nao-ml-4 { margin-left: 4px; }
+.nao-ml-8 { margin-left: 8px; }
+.nao-ml-12 { margin-left: 12px; }
+.nao-ml-16 { margin-left: 16px; }
+.nao-ml-20 { margin-left: 20px; }
+.nao-ml-22 { margin-left: 22px; }
+.nao-ml-24 { margin-left: 24px; }
+.nao-ml-32 { margin-left: 32px; }
 
 .nao-mr-4 { margin-right: 4px; }
 .nao-mr-6 { margin-right: 6px; }
@@ -56,33 +53,34 @@
 
 // *****************************************************
 // Padding
-.nao-p-1  { padding: 4px; }
-.nao-p-2  { padding: 8px; }
-.nao-p-3  { padding: 12px; }
-.nao-p-4  { padding: 16px; }
-.nao-p-5  { padding: 20px; }
-.nao-p-6  { padding: 24px; }
-.nao-p-8  { padding: 32px; }
+.nao-p-4  { padding: 4px; }
+.nao-p-6  { padding: 6px; }
+.nao-p-8  { padding: 8px; }
+.nao-p-12  { padding: 12px; }
+.nao-p-16  { padding: 16px; }
+.nao-p-20  { padding: 20px; }
+.nao-p-24  { padding: 24px; }
+.nao-p-32  { padding: 32px; }
 
-.nao-pt-1 { padding-top: 4px; }
-.nao-pt-5px { padding-top: 5px; }
-.nao-pt-7px { padding-top: 7px; }
-.nao-pt-2 { padding-top: 8px; }
-.nao-pt-3 { padding-top: 12px; }
-.nao-pt-4 { padding-top: 16px; }
-.nao-pt-5 { padding-top: 20px; }
-.nao-pt-6 { padding-top: 24px; }
-.nao-pt-8 { padding-top: 32px; }
+.nao-pt-4 { padding-top: 4px; }
+.nao-pt-5 { padding-top: 5px; }
+.nao-pt-7 { padding-top: 7px; }
+.nao-pt-8 { padding-top: 8px; }
+.nao-pt-12 { padding-top: 12px; }
+.nao-pt-16 { padding-top: 16px; }
+.nao-pt-20 { padding-top: 20px; }
+.nao-pt-24 { padding-top: 24px; }
+.nao-pt-32 { padding-top: 32px; }
 
-.nao-pb-1 { padding-bottom: 4px; }
-.nao-pb-1-5 { padding-bottom: 5px; }
-.nao-pb-7px { padding-bottom: 7px; }
-.nao-pb-2 { padding-bottom: 8px; }
-.nao-pb-3 { padding-bottom: 12px; }
-.nao-pb-4 { padding-bottom: 16px; }
-.nao-pb-5 { padding-bottom: 20px; }
-.nao-pb-6 { padding-bottom: 24px; }
-.nao-pb-8 { padding-bottom: 32px; }
+.nao-pb-4 { padding-bottom: 4px; }
+.nao-pb-5 { padding-bottom: 5px; }
+.nao-pb-7 { padding-bottom: 7px; }
+.nao-pb-8 { padding-bottom: 8px; }
+.nao-pb-12 { padding-bottom: 12px; }
+.nao-pb-16 { padding-bottom: 16px; }
+.nao-pb-20 { padding-bottom: 20px; }
+.nao-pb-24 { padding-bottom: 24px; }
+.nao-pb-32 { padding-bottom: 32px; }
 
 .nao-pl-1 { padding-left: 4px; }
 .nao-pl-2 { padding-left: 8px; }
@@ -100,24 +98,24 @@
 .nao-pr-6 { padding-right: 24px; }
 .nao-pr-8 { padding-right: 32px; }
 
-.nao-px-1 { padding-left: 4px; padding-right: 4px; }
-.nao-px-2 { padding-left: 8px; padding-right: 8px; }
-.nao-px-10px { padding-left: 10px; padding-right: 10px; }
-.nao-px-3 { padding-left: 12px; padding-right: 12px; }
-.nao-px-4 { padding-left: 16px; padding-right: 16px; }
-.nao-px-5 { padding-left: 20px; padding-right: 20px; }
-.nao-px-6 { padding-left: 24px; padding-right: 24px; }
-.nao-px-8 { padding-left: 32px; padding-right: 32px; }
+.nao-px-4 { padding-left: 4px; padding-right: 4px; }
+.nao-px-8 { padding-left: 8px; padding-right: 8px; }
+.nao-px-10 { padding-left: 10px; padding-right: 10px; }
+.nao-px-12 { padding-left: 12px; padding-right: 12px; }
+.nao-px-16 { padding-left: 16px; padding-right: 16px; }
+.nao-px-20 { padding-left: 20px; padding-right: 20px; }
+.nao-px-24 { padding-left: 24px; padding-right: 24px; }
+.nao-px-32 { padding-left: 32px; padding-right: 32px; }
 
-.nao-py-1 { padding-top: 4px; padding-bottom: 4px; }
-.nao-py-6px { padding-top: 6px; padding-bottom: 6px; }
-.nao-py-2 { padding-top: 8px; padding-bottom: 8px; }
-.nao-py-9px { padding-top: 9px; padding-bottom: 9px; }
-.nao-py-3 { padding-top: 12px; padding-bottom: 12px; }
-.nao-py-4 { padding-top: 16px; padding-bottom: 16px; }
-.nao-py-5 { padding-top: 20px; padding-bottom: 20px; }
-.nao-py-6 { padding-top: 24px; padding-bottom: 24px; }
-.nao-py-8 { padding-top: 32px; padding-bottom: 32px; }
+.nao-py-4 { padding-top: 4px; padding-bottom: 4px; }
+.nao-py-6 { padding-top: 6px; padding-bottom: 6px; }
+.nao-py-8 { padding-top: 8px; padding-bottom: 8px; }
+.nao-py-9 { padding-top: 9px; padding-bottom: 9px; }
+.nao-py-12 { padding-top: 12px; padding-bottom: 12px; }
+.nao-py-16 { padding-top: 16px; padding-bottom: 16px; }
+.nao-py-20 { padding-top: 20px; padding-bottom: 20px; }
+.nao-py-24 { padding-top: 24px; padding-bottom: 24px; }
+.nao-py-32 { padding-top: 32px; padding-bottom: 32px; }
 
 
 

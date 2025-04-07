@@ -14,16 +14,19 @@ export class SingleTaskComponent {
    * Reference to the dropdown component used to control its visibility.
    */
   @ViewChild('dropdownCmp') public dropdownCmp: ConfigureSingleTaskComponent | null = null;
-
   /**
    * Toggles the dropdown menu inside the ConfigureSingleTaskComponent.
    */
   public onToggleDropdown(): void {
     this.dropdownCmp?.toggleDropdown();
   }
-
+  /**
+   * Stores the currently active dropdown key.
+   */
   public activeDropdown: string | null = null;
-
+  /**
+   * Config for each dropdown menu item, including label, icon, and available options.
+   */
   public menuItems = [
     {
       key: 'subtasks',
@@ -82,6 +85,9 @@ export class SingleTaskComponent {
     }
   ];
 
+  /**
+   * Toggles the currently active dropdown based on the provided key
+   */
   public toggleDropdown(key: string): void {
     this.activeDropdown = this.activeDropdown === key ? null : key;
   }
