@@ -18,6 +18,9 @@
   align-items: center;
   border: none;
   font-size: 13px;
+  line-height: 1;
+  box-sizing: border-box;
+  padding: 0;
 }
 .nao-btn-primary {
   background: var(--primary-color);
@@ -29,8 +32,6 @@
   color: var(--text-muted);
   box-shadow: 0 4px 8px rgba(216, 220, 235, 0.5),
   0 2px 4px rgba(200, 207, 233, 0.3);
-  font-size: 13px;
-  border: none;
 }
 .nao-btn-outline {
   background: var(--white);
@@ -39,6 +40,6 @@
 }
 
 .view-btn--active {
-  background: var(--view-btn-bg-hover);
+  background-color: var(--primary-color-light-10);
   color: var(--primary-color);
 }
