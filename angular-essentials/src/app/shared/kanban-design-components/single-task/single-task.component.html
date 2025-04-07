@@ -1,13 +1,13 @@
 <div class="task-column radius-xl nao-px-12 nao-py-16 flex flex-col align-center">
     <div class="flex space-between nao-px-8 nao-w-100">
-        <span class="task-column__title">Unpaid</span>
+        <span class="text-md text-heading">Unpaid</span>
         <span class="nao-text-muted text-md font-regular nao-ml-32">4</span>
         <div class="pointer flex align-center center-x nao-p-8 radius-sm nao-h-24 nao-w-24">
             <img src="assets/three_dots.svg" alt="More options" class="nao-w-20 nao-h-6 nao-text-muted" />
         </div>
     </div>
 
-    <div class="task-card radius-lg nao-py-8 nao-px-12 flex flex-col">
+    <div class="task-card flex flex-col radius-lg nao-py-8 nao-px-12 nao-mx-3 nao-mb-2 nao-mt-12">
         <div class="task-card__header flex space-between align-center">
             <span class="font-regular text-md text-heading line-height-1">Mega Electronix</span>
             <div class="task-card__config-wrapper relative inline-block">
@@ -18,15 +18,15 @@
 
                 <app-configure-single-task
                     #dropdownCmp
-                    class="app-configure-single-task__component absolute"
+                    class="app-configure-single-task__component absolute z-top"
                 />
             </div>
         </div>
-        <span class="text-md nao-text-muted nao-mt-16 nao-mb-8 line-height-1">$32,213</span>
+        <span class="text-md nao-text-muted nao-mt-4 nao-mb-8 line-height-1">$32,213</span>
 
         <ul class="task-card__meta flex flex-col list-style-none nao-w-100 relative">
             <li
-                    class="dropdown-wrapper relative pointer"
+                    class="dropdown-wrapper relative pointer radius-md"
                     *ngFor="let item of menuItems"
                     (click)="toggleDropdown(item.key)"
             >

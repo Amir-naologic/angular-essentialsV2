@@ -3,13 +3,13 @@
 
     <input
             type="text"
-            class="group-form__input nao-p-8 text-md text-heading radius-md nao-mb-12 nao-mt-16"
+            class="group-form__input nao-p-8 text-md text-heading radius-md nao-mb-12 nao-mt-16 line-height-20"
             placeholder="Overdu..."
     />
 
     <div class="flex nao-gap-8 wrap">
         <div
-                class="color-box nao-w-28 nao-h-28 radius-md pointer"
+                class="color-box nao-w-28 nao-h-28 radius-md pointer nao-p-1"
                 *ngFor="let color of colors"
                 [ngStyle]="{ '--color': hexToRgba(color, 0.75) }"
         >

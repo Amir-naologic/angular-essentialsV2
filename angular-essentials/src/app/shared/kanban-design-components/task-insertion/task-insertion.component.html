@@ -24,7 +24,8 @@
                 </div>
             </div>
 
-            <div class="column-add-task font-medium radius-md nao-px-8 nao-py-6 nao-gap-6">
+            <div class="column-add-task font-medium radius-md nao-px-8
+            nao-py-6 nao-gap-6 line-height-1 pointer nao-w-100 flex align-center nao-text-muted">
                 <img src="assets/plus.svg" alt="Add" class="nao-w-10 nao-h-10" />
                 <span class="default-text">Add task</span>
             </div>
@@ -45,7 +46,7 @@
                 <span class="add-group-button__text">Add group</span>
             </button>
 
-            <div class="group-form-position" *ngIf="activeForm === i">
+            <div class="group-form-position absolute nao-mt-5 z-top" *ngIf="activeForm === i">
                 <app-add-group></app-add-group>
             </div>
         </div>
