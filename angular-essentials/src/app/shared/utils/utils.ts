@@ -26,3 +26,12 @@ export function MatchingValuesValidator(controlName: string, matchingControlName
         return null;
     };
 }
+
+/**
+ * Dropdown items interface.
+ */
+export interface DropdownItems {
+    label: string;
+    icon: string;
+    action: () => void;
+}

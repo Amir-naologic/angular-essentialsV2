@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfigureSingleTaskComponent } from "../dropdown/configure-single-task.component";
 import { SingleTaskInformationComponent } from "../single-task-information/single-task-information.component";
+import { DropdownItems } from "../../utils/utils";
 
 @Component({
   selector: 'app-single-task',
@@ -10,6 +11,36 @@ import { SingleTaskInformationComponent } from "../single-task-information/singl
   styleUrl: './single-task.component.scss',
 })
 export class SingleTaskComponent {
+  /**
+   * Dropdown menu options for task actions.
+   */
+  public dropdownItems: DropdownItems[] = [
+    {
+      label: 'Edit',
+      icon: 'assets/icons/box_person.svg',
+      action: () => {}
+    },
+    {
+      label: 'Duplicate',
+      icon: 'assets/icons/brush.svg',
+      action: () => {}
+    },
+    {
+      label: 'Copy ID',
+      icon: 'assets/icons/wallet.svg',
+      action: () => {}
+    },
+    {
+      label: 'Copy link',
+      icon: 'assets/icons/copy.svg',
+      action: () => {}
+    },
+    {
+      label: 'Delete',
+      icon: 'assets/icons/delete.svg',
+      action: () => {}
+    }
+  ];
   /**
    * Reference to the dropdown component used to control its visibility.
    */
@@ -31,29 +62,29 @@ export class SingleTaskComponent {
     {
       key: 'subtasks',
       label: '1/4 subtasks',
-      icon: 'assets/box_check.svg',
+      icon: 'assets/icons/box_check.svg',
       options: [
-        { initials: 'O', label: 'Me', color: '#e7e6fd' },
-        { initials: 'D', label: 'Darren Colborn', color: '#c7e6f8' },
-        { initials: 'M', label: 'Mikayla Hanson', color: '#d6f7f3' },
-        { initials: 'J', label: 'Josephine Mason', color: '#e5cbfc' }
+        { initials: 'O', label: 'Me', color: '#e7e6fd', initialsColor: '#3E40DB' },
+        { initials: 'D', label: 'Darren Colborn', color: '#c7e6f8', initialsColor: '#2CB1FF' },
+        { initials: 'M', label: 'Mikayla Hanson', color: '#d6f7f3', initialsColor: '#00B0BF' },
+        { initials: 'J', label: 'Josephine Mason', color: '#e5cbfc', initialsColor: '#8800FF' }
       ]
     },
     {
       key: 'status',
       label: 'Unpaid',
-      icon: 'assets/person.svg',
+      icon: 'assets/icons/status.svg',
       options: [
-        { initials: 'O', label: 'Me', color: '#e7e6fd' },
-        { initials: 'D', label: 'Darren Colborn', color: '#c7e6f8' },
-        { initials: 'M', label: 'Mikayla Hanson', color: '#d6f7f3' },
-        { initials: 'J', label: 'Josephine Mason', color: '#e5cbfc' }
+        { initials: 'O', label: 'Unpaid', color: '#e7e6fd' },
+        { initials: 'D', label: 'Overdue', color: '#c7e6f8' },
+        { initials: 'M', label: 'Paid in full', color: '#d6f7f3' },
+        { initials: 'J', label: 'Paid partially', color: '#e5cbfc' }
       ]
     },
     {
       key: 'assigned',
       label: 'Florin Galan',
-      icon: 'assets/person.svg',
+      icon: 'assets/icons/person.svg',
       options: [
         { initials: 'O', label: 'Me', color: '#e7e6fd' },
         { initials: 'D', label: 'Darren Colborn', color: '#c7e6f8' },
@@ -64,7 +95,7 @@ export class SingleTaskComponent {
     {
       key: 'date',
       label: 'September 9, 2024',
-      icon: 'assets/calendar.svg',
+      icon: 'assets/icons/date.svg',
       options: [
         { initials: 'O', label: 'Me', color: '#e7e6fd' },
         { initials: 'D', label: 'Darren Colborn', color: '#c7e6f8' },
@@ -75,7 +106,7 @@ export class SingleTaskComponent {
     {
       key: 'priority',
       label: 'Urgent',
-      icon: 'assets/person.svg',
+      icon: 'assets/icons/urgent.svg',
       options: [
         { initials: 'O', label: 'Me', color: '#e7e6fd' },
         { initials: 'D', label: 'Darren Colborn', color: '#c7e6f8' },

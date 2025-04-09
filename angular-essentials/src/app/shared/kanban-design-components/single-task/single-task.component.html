@@ -1,42 +1,44 @@
-<div class="task-column radius-xl nao-px-12 nao-py-16 flex flex-col align-center">
+<div class="task-column radius-12 nao-px-12 nao-pt-12 nao-pb-18 flex flex-col align-center">
     <div class="flex space-between nao-px-8 nao-w-100">
         <span class="text-md text-heading">Unpaid</span>
         <span class="nao-text-muted text-md font-regular nao-ml-32">4</span>
-        <div class="pointer flex align-center center-x nao-p-8 radius-sm nao-h-24 nao-w-24">
-            <img src="assets/three_dots.svg" alt="More options" class="nao-w-20 nao-h-6 nao-text-muted" />
+        <div class="pointer flex align-center center-x nao-p-8 radius-4 nao-h-24 nao-w-24">
+            <img src="assets/icons/three_dots.svg" alt="More options" class="nao-w-20 nao-h-6 nao-text-muted" />
         </div>
     </div>
 
-    <div class="task-card flex flex-col radius-lg nao-py-8 nao-px-12 nao-mx-3 nao-mb-2 nao-mt-12">
+    <div class="task-card flex flex-col radius-8 nao-p-8 nao-mx-3 nao-mt-8">
         <div class="task-card__header flex space-between align-center">
             <span class="font-regular text-md text-heading line-height-1">Mega Electronix</span>
             <div class="task-card__config-wrapper relative inline-block">
-                <div class="nao-bg-gray-card radius-sm nao-h-24 nao-w-24 pointer flex align-center center-x"
+                <div class="more radius-4 nao-h-24 nao-w-24 pointer flex align-center center-x"
                      (click)="onToggleDropdown()">
-                    <img src="assets/three_dots.svg" alt="More options" />
+                    <img src="assets/icons/three_dots.svg" alt="More options" />
                 </div>
 
                 <app-configure-single-task
                     #dropdownCmp
                     class="app-configure-single-task__component absolute z-top"
+                    [items]="dropdownItems"
                 />
+
             </div>
         </div>
         <span class="text-md nao-text-muted nao-mt-4 nao-mb-8 line-height-1">$32,213</span>
 
         <ul class="task-card__meta flex flex-col list-style-none nao-w-100 relative">
             <li
-                    class="dropdown-wrapper relative pointer radius-md"
+                    class="dropdown-wrapper relative pointer radius-5 no-select"
                     *ngFor="let item of menuItems"
                     (click)="toggleDropdown(item.key)"
             >
                 <div class="default-text nao-gap-6 nao-pt-5 nao-pb-5 nao-pl-2 flex align-center line-height-1">
-                    <img [src]="item.icon" class="nao-w-14 nao-h-14" />
+                    <img [src]="item.icon" class="nao-w-10 nao-h-10" />
                     {{ item.label }}
                 </div>
 
                 <app-single-task-information
-                        class="absolute radius-lg z-top nao-mt-5 nao-w-100"
+                        class="absolute radius-8 z-top nao-mt-5 nao-w-100"
                         *ngIf="activeDropdown === item.key"
                         [show]="true"
                         [options]="item.options"

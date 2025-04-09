@@ -8,6 +8,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './single-task-information.component.scss',
 })
 export class SingleTaskInformationComponent {
-  @Input() show = false;
-  @Input() options: { label: string, initials: string, color: string }[] = [];
+  /**
+   * Determines whether the task information panel should be visible.
+   */
+  @Input() public show: boolean = false;
+  /**
+   * List of options to display.
+   */
+  @Input() public options: { label: string, initials: string, color: string, initialsColor?: string }[] = [];
 }
