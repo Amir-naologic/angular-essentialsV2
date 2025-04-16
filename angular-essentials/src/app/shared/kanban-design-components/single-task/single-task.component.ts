@@ -73,11 +73,11 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
     /**
      * A reference to the dropdown component, which can be toggled from the code.
      */
-    @ViewChild('dropdownCmp') public dropdownCmp: ConfigureSingleTaskComponent | null = null;
+    @ViewChildren('dropdownCmp') dropdownCmp: QueryList<ConfigureSingleTaskComponent> = new QueryList<ConfigureSingleTaskComponent>();
     /**
      * A collection of references to the task info elements in the template.
      */
-    @ViewChild('taskInfo') public taskInfos: QueryList<ElementRef> = new QueryList<ElementRef>();
+    @ViewChildren('taskInfos') public taskInfos: QueryList<ElementRef> = new QueryList<ElementRef>();
     /**
      * A collection of references to the swimlane elements in the template.
      */
@@ -173,8 +173,17 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
     /**
      * Toggles the dropdown component.
      */
-    public onToggleDropdown(): void {
-        this.dropdownCmp?.toggleDropdown();
+    public onToggleDropdown(taskId: string): void {
+        // -->Find: index of the task by ID
+        const index: number = this.taskSections.findIndex(task => task.id === taskId);
+
+        // -->Convert: QueryList of dropdown components to an array
+        const cmpArray:ConfigureSingleTaskComponent[] = this.dropdownCmp.toArray();
+
+        // -->Toggle: the dropdown for the corresponding task if found
+        if (cmpArray[index]) {
+            cmpArray[index].toggleDropdown();
+        }
     }
 
     /**
@@ -262,7 +271,7 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
         const { ResizeMirror } = Plugins;
 
         // -->Create: Sortable
-        this.draggableCards = new Sortable(this.document.querySelectorAll('.taskInfo'), {
+        this.draggableCards = new Sortable(this.document.querySelectorAll('.taskInfos'), {
             draggable: '.draggable',
             delay: 100,
             mirror: {
@@ -364,7 +373,7 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
             }
 
             // -->Get: container with the tasks within this swimlane
-            const taskInfo = colEl.querySelector('.taskInfo');
+            const taskInfo = colEl.querySelector('.taskInfos');
             if (!taskInfo) {
                 // -->Set: count to 0
                 this.ticketCounter[sectionId] = 0;
@@ -381,7 +390,7 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
                 const hasModifierClass = classListString.includes('draggable--');
 
                 // -->Ensure the draggable is actually within this taskInfo element
-                return !hasModifierClass && draggable.closest('.taskInfo') === taskInfo;
+                return !hasModifierClass && draggable.closest('.taskInfos') === taskInfo;
             });
 
             // -->Store: the count for this section based on its unique id
