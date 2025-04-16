@@ -53,12 +53,6 @@ export class TaskInsertionComponent implements AfterViewInit {
    */
   @ViewChild('dropdownCmp') public dropdownCmp: ConfigureSingleTaskComponent | null = null;
   /**
-   * Toggles the dropdown menu inside the ConfigureSingleTaskComponent.
-   */
-  public onToggleDropdown(): void {
-    this.dropdownCmp?.toggleDropdown();
-  }
-  /**
    * Group list used to render "Add group" buttons.
    */
   public groups: number[] = [1, 2];
@@ -97,6 +91,13 @@ export class TaskInsertionComponent implements AfterViewInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
+
+  /**
+   * Toggles the dropdown menu inside the ConfigureSingleTaskComponent.
+   */
+  public onToggleDropdown(): void {
+    this.dropdownCmp?.toggleDropdown();
+  }
 
   /**
    * Adds a new task using the form input and re-initializes drag behavior.
@@ -168,7 +169,7 @@ export class TaskInsertionComponent implements AfterViewInit {
 
     // -->Re-initialize: Draggable again now that the DOM is visible
     if(!this.isMinimized) {
-      setTimeout(() => {
+      setTimeout((): void => {
         void this.initializeDraggable();
       }, 0)
     }
