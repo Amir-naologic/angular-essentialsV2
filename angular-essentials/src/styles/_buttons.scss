@@ -12,7 +12,7 @@
 
 
 // *****************************************************
-// Buttons
+// Nao Button
 .nao-btn {
   display: flex;
   align-items: center;
@@ -21,12 +21,10 @@
   line-height: 1;
   padding: 0;
 }
-.nao-btn-primary {
-  background: var(--primary-color);
-  color: var(--white);
 
-}
-.nao-view-btns{
+// *****************************************************
+// Nao Views Button
+.nao-view-btns {
   @extend .nao-btn;
   background: var(--view-btn-bg);
   color: var(--text-muted);
@@ -35,11 +33,43 @@
   font-weight: 400;
   border-radius: 5px;
   padding: 6px 8px;
+  .icon-active {
+    display: none;
+  }
+
+  &:hover {
+    background-color: var(--primary-color-light-10);
+    color: var(--primary-color);
+
+    .icon-default {
+      display: none;
+    }
+    .icon-active {
+      display: inline;
+    }
+  }
+
+  &.active {
+    background-color: var(--primary-color-light-10);
+    color: var(--primary-color);
+
+    .icon-default {
+      display: none;
+    }
+
+    .icon-active {
+      display: inline;
+    }
+  }
 }
+
+
 .nao-view-btns:hover {
   background-color: var(--primary-color-light-10);
 }
 
+// *****************************************************
+// Nao Action Button
 .nao-action-btn {
   @extend .nao-btn;
   background: var(--white);

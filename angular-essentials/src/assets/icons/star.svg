@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="16">
+	<defs>
+		<linearGradient id="gradient_0" gradientUnits="userSpaceOnUse" x1="1.4862604e-15" y1="1.0963856" x2="7.4880981" y2="2.7278657">
+			<stop offset="0" stop-color="#002EB2"/>
+			<stop offset="1" stop-color="#00FFD1"/>
+		</linearGradient>
+	</defs>
+	<path fill="url(#gradient_0)" transform="translate(9.44444 9.44444)" d="M0 1.9444444C1.073887 1.9444444 1.9444444 2.815002 1.9444444 3.8888888C1.9444444 2.815002 2.815002 1.9444444 3.8888888 1.9444444C2.815002 1.9444444 1.9444444 1.073887 1.9444444 0C1.9444444 1.073887 1.073887 1.9444444 0 1.9444444Z" fill-rule="evenodd"/>
+	<defs>
+		<linearGradient id="gradient_1" gradientUnits="userSpaceOnUse" x1="1.4862604e-15" y1="1.0963856" x2="7.4880981" y2="2.7278657">
+			<stop offset="0" stop-color="#002EB2"/>
+			<stop offset="1" stop-color="#00FFD1"/>
+		</linearGradient>
+	</defs>
+	<path fill="none" stroke="url(#gradient_1)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(9.44444 9.44444)" d="M0 1.9444444C1.073887 1.9444444 1.9444444 2.815002 1.9444444 3.8888888C1.9444444 2.815002 2.815002 1.9444444 3.8888888 1.9444444C2.815002 1.9444444 1.9444444 1.073887 1.9444444 0C1.9444444 1.073887 1.073887 1.9444444 0 1.9444444Z" fill-rule="evenodd"/>
+	<defs>
+		<linearGradient id="gradient_2" gradientUnits="userSpaceOnUse" x1="1.4862604e-15" y1="1.0963856" x2="7.4880981" y2="2.7278657">
+			<stop offset="0" stop-color="#002EB2"/>
+			<stop offset="1" stop-color="#00FFD1"/>
+		</linearGradient>
+	</defs>
+	<path fill="url(#gradient_2)" transform="translate(1.11111 1.66667)" d="M0 1.9444444C1.073887 1.9444444 1.9444444 2.815002 1.9444444 3.8888888C1.9444444 2.815002 2.815002 1.9444444 3.8888888 1.9444444C2.815002 1.9444444 1.9444444 1.073887 1.9444444 0C1.9444444 1.073887 1.073887 1.9444444 0 1.9444444Z" fill-rule="evenodd"/>
+	<defs>
+		<linearGradient id="gradient_3" gradientUnits="userSpaceOnUse" x1="1.4862604e-15" y1="1.0963856" x2="7.4880981" y2="2.7278657">
+			<stop offset="0" stop-color="#002EB2"/>
+			<stop offset="1" stop-color="#00FFD1"/>
+		</linearGradient>
+	</defs>
+	<path fill="none" stroke="url(#gradient_3)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(1.11111 1.66667)" d="M0 1.9444444C1.073887 1.9444444 1.9444444 2.815002 1.9444444 3.8888888C1.9444444 2.815002 2.815002 1.9444444 3.8888888 1.9444444C2.815002 1.9444444 1.9444444 1.073887 1.9444444 0C1.9444444 1.073887 1.073887 1.9444444 0 1.9444444Z" fill-rule="evenodd"/>
+	<defs>
+		<linearGradient id="gradient_4" gradientUnits="userSpaceOnUse" x1="11.111111" y1="0" x2="0" y2="11.111111">
+			<stop offset="0" stop-color="#32C5FF"/>
+			<stop offset="0.35907453" stop-color="#B620E0"/>
+			<stop offset="1" stop-color="#F7B500"/>
+		</linearGradient>
+	</defs>
+	<path fill="url(#gradient_4)" transform="translate(1.66667 1.66667)" d="M5.5555553 11.111111C5.5555553 8.0428629 8.0428629 5.5555553 11.111111 5.5555553C8.0428629 5.5555553 5.5555553 3.0682485 5.5555553 0C5.5555553 3.0682485 3.0682485 5.5555553 0 5.5555553C3.0682485 5.5555553 5.5555553 8.0428629 5.5555553 11.111111Z" fill-rule="evenodd"/>
+	<defs>
+		<linearGradient id="gradient_5" gradientUnits="userSpaceOnUse" x1="10.535076" y1="-0.16256693" x2="0" y2="11.111111">
+			<stop offset="0" stop-color="#32C5FF"/>
+			<stop offset="0.51258391" stop-color="#B620E0"/>
+			<stop offset="1" stop-color="#F7B500"/>
+		</linearGradient>
+	</defs>
+	<path fill="none" stroke="url(#gradient_5)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="translate(1.66667 1.66667)" d="M5.5555553 11.111111C5.5555553 8.0428629 8.0428629 5.5555553 11.111111 5.5555553C8.0428629 5.5555553 5.5555553 3.0682485 5.5555553 0C5.5555553 3.0682485 3.0682485 5.5555553 0 5.5555553C3.0682485 5.5555553 5.5555553 8.0428629 5.5555553 11.111111Z" fill-rule="evenodd"/>
+</svg>

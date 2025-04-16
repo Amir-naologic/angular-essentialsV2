@@ -9,6 +9,7 @@
 @import 'utilities/sizes';
 @import 'utilities/spacing';
 @import 'utilities/text';
+@import 'utilities/draggable';
 
 // *****************************************************
 // Root variables
@@ -30,18 +31,25 @@
   --card-config-gray-color: #F1F3F8;
   --card-config-divider: #a9acaf;
   --input-border-default: #D8DCEB;
+  --sidebar-header-title: #2F3059;
+  --light-yellow: #FCEEB5;
+  --redish-brown: #B13600;
+  --draggable-border: #E9EEF9;
+  --draggable-background-color: #F1F6FF;
   --column-background-color: rgba(241, 243, 248, 0.5);
   --column-bg: rgba(241, 243, 248, 1);
   --column-border-color: rgba(233, 238, 249, 1);
   --primary-color-light-10: rgba(62, 64, 219, 0.1);
-
-
+  --overlay-background: rgba(242, 245, 250, 0.3);
+  --sidebar-box-shadow-color: rgba(15, 23, 42, 0.06);
   --view-btn-bg: rgba(241, 243, 248, 0.75);
   --view-btn-bg-hover: rgba(225, 227, 233, 0.75);
   --card-config-border-color: rgba(104, 113, 150, 0.1);
   --group-form-border: rgba(104, 113, 150, 0.3);
+
   --card-config-box-shadow: 0 4.5px 5px -1px rgba(216, 220, 235, 1), 0 2.5px 3px -1.5px rgba(200, 207, 233, 1);
   --white-box-shadow:  0 1px 0.5px -1px rgba(216, 220, 235, 1), 0 1.5px 3px -1.5px rgba(200, 207, 233, 1);
+
 }
 
 *, *::before, *::after {
@@ -366,4 +374,123 @@ body.dark-mode {
   border: 1px solid var(--light-purple-border-color);
   box-shadow: var(--white-box-shadow);
   outline: none;
+}
+
+// *****************************************************
+// Section Title
+.section-title{
+  width: 151px;
+}
+
+// *****************************************************
+// Overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--overlay-background);
+  z-index: 999;
+  transition: opacity 150ms ease-in;
+  opacity: 1;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  99% {
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+// *****************************************************
+// Sidebar
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40%;
+  background-color: var(--white);
+  box-shadow: -4px 0 10px var(--sidebar-box-shadow-color);
+  z-index: 1000;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  overflow-y: auto;
+
+  &.enter {
+    animation: slideInRight 200ms ease-out forwards;
+  }
+
+  &.leave {
+    animation: slideOutRight 200ms ease-in forwards;
+    pointer-events: none;
+  }
+}
+
+// *****************************************************
+// Logic Pilot Banner
+.logic-pilot-banner {
+  background-image: linear-gradient(
+                  90deg,
+                  #f2f4ff 0%,
+                  #fff0fd 100%
+  );
+}
+
+// *****************************************************
+// Sidebar Info Grid
+.sidebar-info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 85px;
+
+  div{
+    cursor: pointer;
+  }
+
+  .additional-data {
+    span{
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 3px 8px;
+      line-height: 1;
+    }
+  }
+
+  .additional-data:hover {
+    background-color: var(--card-config-gray-color);
+  }
+
+  .status-pill {
+    background-color: var(--light-yellow);
+    color: var(--redish-brown);
+  }
+}
+
+.hr {
+  color: var(--card-config-divider);
+  margin: 0;
 }

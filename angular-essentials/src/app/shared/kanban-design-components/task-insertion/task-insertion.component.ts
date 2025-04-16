@@ -30,7 +30,7 @@ export class TaskInsertionComponent implements AfterViewInit {
     {
       label: 'Add Task',
       icon: 'assets/icons/box_person.svg',
-      action: () => {}
+      action: () => this.addTask()
     },
     {
       label: 'Rename',
@@ -61,7 +61,7 @@ export class TaskInsertionComponent implements AfterViewInit {
   /**
    * Group list used to render "Add group" buttons.
    */
-  public groups = [1, 2];
+  public groups: number[] = [1, 2];
   /**
    * Tracks which group form is currently active.
    */
@@ -73,7 +73,7 @@ export class TaskInsertionComponent implements AfterViewInit {
   /**
    * Internal counter used to generate unique task IDs.
    */
-  private taskId = 1;
+  private taskId: number = 1;
   /**
    * Holds the instance of the Draggable library.
    */
@@ -123,8 +123,7 @@ export class TaskInsertionComponent implements AfterViewInit {
   }
 
   /**
-   * Angular lifecycle hook that runs after the component’s view has been fully initialized.
-   * Used to initialize drag-and-drop functionality.
+   * Initializes drag-and-drop functionality.
    */
   public async ngAfterViewInit(): Promise<void> {
     if (isPlatformBrowser(this.platformId)) {

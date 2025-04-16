@@ -1,28 +1,40 @@
 <div class="flex space-between align-start wrap">
     <div class="flex align-center nao-gap-10 nao-mb-16">
-        <p class="text-xl line-height-34 font-medium text-heading m-0 nao-px-2">Invoices</p>
+        <p class="text-24 line-height-34 font-medium text-heading m-0 nao-px-2">Invoices</p>
         <div class="board-header__divider"></div>
         <span class="default-text">14,242 items</span>
     </div>
 
     <div class="flex space-between align-center w-100">
         <div class="flex nao-gap-8 nao-pb-8 nao-pt-7">
-            <button class="nao-view-btns">
-                <img src="assets/icons/table.svg" alt="Table" class="nao-w-12 nao-h-12"/>
-                Table
-            </button>
-            <button class="view-btn--active nao-view-btns">
-                <img src="assets/icons/board.svg" alt="Board" class="nao-w-12 nao-h-12"/>
-                Board
-            </button>
-            <button class="nao-view-btns">
-                <img src="assets/icons/calendar.svg" alt="Calendar" class="nao-w-12 nao-h-13"/>
-                Calendar
-            </button>
-            <button class="nao-view-btns">
-                <img src="assets/icons/timeline.svg" alt="Timeline" class="nao-w-12 nao-h-14"/>
-                Timeline
-            </button>
+            <app-view-toggle-buttons
+                    label="Table"
+                    icon="assets/icons/table.svg"
+                    iconActive="assets/icons/active-table.svg"
+                    [isActive]="activeView === 'table'"
+                    (clicked)="setActiveView('table')"
+            />
+            <app-view-toggle-buttons
+                    label="Board"
+                    icon="assets/icons/activity.svg"
+                    iconActive="assets/icons/active-activity.svg"
+                    [isActive]="activeView === 'activity'"
+                    (clicked)="setActiveView('activity')"
+            />
+            <app-view-toggle-buttons
+                    label="Calendar"
+                    icon="assets/icons/calendar.svg"
+                    iconActive="assets/icons/active-calendar.svg"
+                    [isActive]="activeView === 'calendar'"
+                    (clicked)="setActiveView('calendar')"
+            />
+            <app-view-toggle-buttons
+                    label="Timeline"
+                    icon="assets/icons/timeline.svg"
+                    iconActive="assets/icons/timeline.svg"
+                    [isActive]="activeView === 'timeline'"
+                    (clicked)="setActiveView('timeline')"
+            />
         </div>
 
         <div class="flex nao-gap-8">
