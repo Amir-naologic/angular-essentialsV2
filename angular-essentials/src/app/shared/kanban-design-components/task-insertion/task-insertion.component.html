@@ -1,30 +1,31 @@
 <div class="flex align-start nao-gap-24">
     <div class="flex align-start">
-        <div class="status-badge radius-lg font-medium text-md nao-mr-18 nao-text-muted nao-px-8">
+        <div class="status-badge radius-lg font-medium text-md nao-mr-18 nao-text-muted nao-px-2">
             <img src="assets/arrow_left_right.svg" alt="Icon" class="nao-w-12 nao-h-6" style="margin: 16px 0" />
             <span>Unpaid</span>
-            <span class="default-text nao-mt-8 nao-mb-8">4</span>
+            <span class="default-text nao-mt-2 nao-mb-2">4</span>
         </div>
 
-        <div class="column-container radius-lg nao-gap-8 nao-p-12">
+        <div class="column-container radius-lg nao-gap-8 nao-p-3">
             <div class="flex space-between align-center">
                 <div>
-                    <input class="column-header__title nao-py-4 nao-px-8 radius-md nao-mr-4" type="text" placeholder="Unpaid" />
+                    <input class="column-header__title nao-py-1 nao-px-2 radius-md nao-mr-4" type="text" placeholder="Unpaid" />
                     <span class="default-text">4</span>
                 </div>
 
                 <div class="flex">
-                    <button class="column-header__icon nao-mr-6 radius-md nao-p-8 nao-w-24 nao-h-24 nao-p-6 nao-ml-22">
+                    <button class="column-header__icon nao-mr-6 radius-md nao-p-2" style="margin-left: 22px; padding: 6px;
+                    width: 24px; height: 24px">
                         <img src="assets/arrow_left_right.svg" alt="Back" class="nao-w-16 nao-h-10 object-contain" />
                     </button>
 
-                    <button class="column-header__icon radius-md nao-p-8 nao-w-24 nao-h-24 nao-p-6">
+                    <button class="column-header__icon radius-md nao-p-2" style="padding: 6px; width: 24px; height: 24px">
                         <img src="assets/three_dots.svg" alt="Options" class="nao-w-20 nao-h-6 object-contain" />
                     </button>
                 </div>
             </div>
 
-            <div class="column-add-task font-medium radius-md nao-px-8 nao-py-6 nao-gap-6">
+            <div class="column-add-task font-medium radius-md nao-px-2 nao-py-6px nao-gap-6">
                 <img src="assets/plus.svg" alt="Add" class="nao-w-10 nao-h-10" />
                 <span class="default-text">Add task</span>
             </div>
@@ -38,7 +39,7 @@
                 [attr.data-index]="i"
         >
             <button
-                    class="add-group-button nao-gap-6 nao-py-4 nao-px-8 radius-md nao-h-24 default-text"
+                    class="add-group-button nao-gap-6 nao-py-1 nao-px-2 radius-md nao-h-24 default-text"
                     (click)="openForm(i)"
             >
                 <img src="assets/plus.svg" alt="Add" class="nao-h-10 nao-w-10" />

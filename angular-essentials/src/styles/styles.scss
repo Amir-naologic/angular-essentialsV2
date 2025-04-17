@@ -37,7 +37,6 @@
   --card-config-gray-color: #F1F3F8;
   --card-config-divider: #a9acaf;
   --card-config-border-color: rgba(104, 113, 150, 0.1);
-  --group-form-border: rgba(104, 113, 150, 0.3);
   --card-config-box-shadow: 0 4.5px 5px -1px rgba(216, 220, 235, 1), 0 2.5px 3px -1.5px rgba(200, 207, 233, 1);
   --white-box-shadow:  0 1px 0.5px -1px rgba(216, 220, 235, 1), 0 1.5px 3px -1.5px rgba(200, 207, 233, 1);
 }
@@ -265,10 +264,10 @@ body.dark-mode {
 // *****************************************************
 // Group Form
 .group-form {
+  border: 1px solid var(--card-config-border-color);
   box-shadow: var(--card-config-box-shadow);
   background-color: var(--white);
   width: 300px;
-  border: 1px solid var(--group-form-border);
 
   .group-form__input {
     line-height: 20px;

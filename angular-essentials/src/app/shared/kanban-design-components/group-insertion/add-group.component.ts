@@ -16,10 +16,8 @@ export class AddGroupComponent {
     '#F5F5F5', '#DFF8E8', '#E1E7F8', '#E1FFFF'
   ];
 
-  /**
-   * Converts a hex color code to an RGBA color string.
-   */
   public hexToRgba(hex: string, alpha: number): string {
+    console.log({hex});
     const bigint = parseInt(hex.replace('#', ''), 16);
     const r = (bigint >> 16) & 255;
     const g = (bigint >> 8) & 255;
