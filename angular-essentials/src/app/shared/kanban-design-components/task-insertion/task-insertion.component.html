@@ -1,6 +1,6 @@
 <div class="flex align-start nao-gap-12">
     <div class="flex align-start">
-        <div *ngIf="isMinimized" class="status-badge radius-8 font-medium text-14 nao-mr-18 nao-text-muted nao-px-8">
+        <div *ngIf="isMinimized" class="status-badge radius-8 font-medium text-md nao-mr-18 nao-text-muted nao-px-8">
             <img src="assets/icons/expand.svg" alt="Icon"
                  class="nao-w-12 nao-h-6 pointer nao-mt-17 nao-mb-16"
                  (click)="toggleMinimize()"
@@ -15,7 +15,7 @@
                     <div class="flex align-center">
                         <input
                                 class="column-header__title text_input_hover
-                                nao-py-2 nao-px-8 radius-5 nao-mr-4 line-height-1 text-14"
+                                nao-py-2 nao-px-8 radius-5 nao-mr-4 line-height-1 text-md"
                                 type="text"
                                 placeholder="Write a task..."
                                 formControlName="task"
@@ -51,7 +51,7 @@
                     >
                         <input
                                 class="column-header__title nao-py-4 nao-px-8 radius-5 nao-mr-4
-                                 line-height-1 text-14 nao-mb-8 grab no-select"
+                                 line-height-1 text-md nao-mb-8 grab no-select"
                                 type="text"
                                 [value]="task.data"
                                 readonly

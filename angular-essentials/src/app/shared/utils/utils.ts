@@ -35,29 +35,3 @@ export interface DropdownItems {
     icon: string;
     action: () => void;
 }
-
-/**
- * Task Section interface.
- */
-export interface TaskSection {
-    id: string;
-    title: string;
-    tasks: { id: number; title: string }[];
-    editing: boolean;
-    activeDropdown?: string | null;
-}
-
-/**
- * Menu Items interface.
- */
-export interface MenuItems {
-    key: string;
-    label: string;
-    icon: string;
-    options: {
-        initials: string,
-        label: string,
-        color: string,
-        initialsColor?: string
-    }[];
-}

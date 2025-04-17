@@ -2,22 +2,19 @@
 
 // *****************************************************
 // Font Sizes
-.text-12 {
+.text-xs {
   font-size: pixelToRem(12);
 }
-.text-13 {
+.text-sm {
   font-size: pixelToRem(13);
 }
-.text-14 {
+.text-md {
   font-size: pixelToRem(14);
 }
-.text-16 {
+.text-lg {
   font-size: pixelToRem(16);
 }
-.text-20 {
-  font-size: pixelToRem(20);
-}
-.text-24 {
+.text-xl {
   font-size: pixelToRem(24);
 }
 
