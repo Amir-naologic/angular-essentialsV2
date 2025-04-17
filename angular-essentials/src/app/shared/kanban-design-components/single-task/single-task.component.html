@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="nao-mt-6 taskInfos">
+            <div class="nao-mt-6 taskInfo">
                 <div class="draggable">
                     <div class="task-card flex flex-col radius-8 nao-p-8 nao-mx-3 nao-mt-8 task-rotate" (click)="showSidebar()">
                         <div class="task-card__header flex space-between align-center">
@@ -49,7 +49,7 @@
                             <div class="task-card__config-wrapper relative inline-block">
                                 <div
                                         class="more radius-4 nao-h-24 nao-w-24 pointer flex align-center center-x"
-                                        (click)="onToggleDropdown(section.id); $event.stopPropagation()"
+                                        (click)="onToggleDropdown(); $event.stopPropagation()"
                                 >
                                     <img src="assets/icons/three_dots.svg" alt="More options"/>
                                 </div>
