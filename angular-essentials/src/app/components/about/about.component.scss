@@ -1,0 +1,25 @@
+@import '../../../styles/_variables.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/button-primary.scss';
+
+// *****************************************************
+// Container Main
+.container {
+  font-family: $font-secondary;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: 2px dashed var(--gray-border);
+
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: var(--base-color);
+    color: var(--white);
+    margin: spacing(lg);
+    text-align: center;
+    line-height: pixelToRem(100);
+    border: 2px solid var(--black);
+    cursor: grab;
+  }
+}

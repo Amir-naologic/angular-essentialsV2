@@ -1,0 +1,64 @@
+// *****************************************************
+// Group Form
+.group-form {
+  border-radius: 5px;
+  border: 1px solid var(--card-config-border-color);
+  box-shadow: var(--card-config-box-shadow);
+  opacity: 1;
+  background-color: var(--white);
+  padding: 9px;
+  width: 294px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Circular Std', sans-serif;
+
+  .group-form__label {
+    margin-left: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Circular Std', sans-serif;
+    color: var(--text-heading);
+  }
+
+  .group-form__input {
+    padding: 9px 8px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-heading);
+    border-radius: 5px;
+    border: 1px solid var(--light-purple-border-color);
+    outline: none;
+    box-shadow: var(--white-box-shadow);
+  }
+
+  .group-form__colors {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .color-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .group-form__save-btn {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Circular Std', sans-serif;
+
+    &:hover {
+      background-color: var(--hover-primary-color);
+    }
+  }
+}
