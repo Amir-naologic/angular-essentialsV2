@@ -1,10 +1,10 @@
-<div *ngIf="show" class="dropdown-panel z-top absolute radius-5 nao-py-12 nao-w-100">
+<div *ngIf="show" class="dropdown-panel z-top absolute radius-md nao-py-12 nao-w-100">
     <ul>
         <li *ngFor="let option of options" class="dropdown-panel__item flex
         align-center nao-gap-6 nao-px-12 font-medium pointer">
             <div class="nao-w-16 nao-h-16 font-medium
-            radius-5 flex align-center center-x font-heavy text-xs"
-                 [style.background]="option.color" [style.color]="option.initialsColor">
+            radius-md flex align-center center-x font-heavy text-xs"
+                 [style.background]="option.color">
                 {{ option.initials }}
             </div>
             <span class="text-md font-regular nao-pt-7 nao-pb-7 text-heading line-height-1">

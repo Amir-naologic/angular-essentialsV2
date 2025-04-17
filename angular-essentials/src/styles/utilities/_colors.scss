@@ -10,3 +10,13 @@
 .text-heading {
   color: var(--text-heading);
 }
+
+// *****************************************************
+// Hover Effects
+.nao-hover-bg-view:hover {
+  background-color: var(--primary-color-light-10);
+}
+
+.nao-action-btn:hover {
+  background: var(--gray-lightest);
+}

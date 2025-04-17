@@ -1,73 +1,36 @@
-<div class="flex align-start nao-gap-12">
+<div class="flex align-start nao-gap-24">
     <div class="flex align-start">
-        <div *ngIf="isMinimized" class="status-badge radius-8 font-medium text-md nao-mr-18 nao-text-muted nao-px-8">
-            <img src="assets/icons/expand.svg" alt="Icon"
-                 class="nao-w-12 nao-h-6 pointer nao-mt-17 nao-mb-16"
-                 (click)="toggleMinimize()"
-            />
-            <span>{{ tasks[0].data }}</span>
-            <span class="default-text nao-mt-8 nao-mb-8">{{ tasks.length }}</span>
+        <div class="status-badge radius-lg font-medium text-md nao-mr-18 nao-text-muted nao-px-8">
+            <img src="assets/arrow_left_right.svg" alt="Icon" class="nao-w-12 nao-h-6" style="margin: 16px 0" />
+            <span>Unpaid</span>
+            <span class="default-text nao-mt-8 nao-mb-8">4</span>
         </div>
 
-        <div *ngIf="!isMinimized" class="column-container flex flex-col radius-8 nao-gap-8 nao-p-12">
-            <form [formGroup]="taskForm">
-                <div class="flex space-between align-center">
-                    <div class="flex align-center">
-                        <input
-                                class="column-header__title text_input_hover
-                                nao-py-2 nao-px-8 radius-5 nao-mr-4 line-height-1 text-md"
-                                type="text"
-                                placeholder="Write a task..."
-                                formControlName="task"
-                        />
-                        <span class="default-text">4</span>
-                    </div>
-
-                    <div class="flex nao-gap-6">
-                        <button (click)="toggleMinimize()" class="column-header__icon flex align-center center-x radius-5 nao-p-8 nao-w-24 nao-h-24 nao-p-6 nao-ml-22">
-                            <img src="assets/icons/collapse.svg" alt="Collapse"/>
-                        </button>
-
-                        <div class="relative">
-                            <button (click)="onToggleDropdown()"
-                                    class="column-header__icon flex align-center center-x radius-5 nao-p-8 nao-w-24 nao-h-24 nao-p-6"
-                            >
-                                <img src="assets/icons/more.svg" alt="More"/>
-                            </button>
-
-                            <app-configure-single-task
-                                #dropdownCmp
-                                class="app-configure-single-task__component absolute z-top"
-                                [items]="dropdownItems"
-                            />
-                        </div>
-                    </div>
+        <div class="column-container flex flex-col radius-lg nao-gap-8 nao-p-12">
+            <div class="flex space-between align-center">
+                <div>
+                    <input class="column-header__title nao-py-4 nao-px-8 radius-md nao-mr-4 line-height-1 text-md"
+                           type="text" placeholder="Unpaid"
+                    />
+                    <span class="default-text">4</span>
                 </div>
 
-                <div class="task-list nao-mb-8" #taskContainer>
-                    <div
-                            *ngFor="let task of tasks"
-                            class="draggable"
-                    >
-                        <input
-                                class="column-header__title nao-py-4 nao-px-8 radius-5 nao-mr-4
-                                 line-height-1 text-md nao-mb-8 grab no-select"
-                                type="text"
-                                [value]="task.data"
-                                readonly
-                        />
-                    </div>
-                </div>
+                <div class="flex">
+                    <button class="column-header__icon flex align-center center-x nao-mr-6 radius-md nao-p-8 nao-w-24 nao-h-24 nao-p-6 nao-ml-22">
+                        <img src="assets/arrow_left_right.svg" alt="Back" class="nao-w-16 nao-h-10 object-contain" />
+                    </button>
 
-                <button class="column-add-task font-medium radius-5 nao-px-8
-            nao-py-5 nao-gap-6 line-height-1 pointer nao-w-100 flex align-center nao-text-muted"
-                        [class.nao-disabled]="taskForm.invalid"
-                        (click)="addTask()"
-                        [disabled]="taskForm.invalid">
-                    <img src="assets/icons/plus.svg" alt="Add" class="nao-w-10 nao-h-10"/>
-                    <span class="default-text">Add task</span>
-                </button>
-            </form>
+                    <button class="column-header__icon flex align-center center-x radius-md nao-p-8 nao-w-24 nao-h-24 nao-p-6">
+                        <img src="assets/three_dots.svg" alt="Options" class="nao-w-20 nao-h-6 object-contain" />
+                    </button>
+                </div>
+            </div>
+
+            <div class="column-add-task font-medium radius-md nao-px-8
+            nao-py-6 nao-gap-6 line-height-1 pointer nao-w-100 flex align-center nao-text-muted">
+                <img src="assets/plus.svg" alt="Add" class="nao-w-10 nao-h-10" />
+                <span class="default-text">Add task</span>
+            </div>
         </div>
     </div>
 
@@ -75,12 +38,13 @@
         <div
                 class="relative"
                 *ngFor="let group of groups; let i = index"
+                [attr.data-index]="i"
         >
             <button
-                    class="add-group-button nao-gap-6 nao-py-4 nao-px-8 radius-5 nao-h-24 default-text"
+                    class="add-group-button nao-gap-6 nao-py-4 nao-px-8 radius-md nao-h-24 default-text"
                     (click)="openForm(i)"
             >
-                <img src="assets/icons/plus.svg" alt="Add" class="nao-h-10 nao-w-10" />
+                <img src="assets/plus.svg" alt="Add" class="nao-h-10 nao-w-10" />
                 <span class="add-group-button__text">Add group</span>
             </button>
 
