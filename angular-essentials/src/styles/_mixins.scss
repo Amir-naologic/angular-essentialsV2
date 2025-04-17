@@ -1,0 +1,50 @@
+@import 'variables';
+
+// *****************************************************
+// Flexbox layout: center both vertically and horizontally
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// *****************************************************
+// Flexbox layout: align items to the end horizontally
+@mixin flex-end() {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// *****************************************************
+// margin-bottom based on spacing scale
+@mixin margin-bottom($size: sm) {
+  margin-bottom: spacing($size);
+}
+
+// *****************************************************
+// margin-top based on spacing scale
+@mixin margin-top($size: sm) {
+  margin-top: spacing($size);
+}
+
+// *****************************************************
+// Padding based on direction and spacing scale
+@mixin padding($direction: horizontal, $size: sm) {
+  @if ($direction == horizontal) {
+    padding-left: spacing($size);
+    padding-right: spacing($size);
+  } @else if ($direction == vertical) {
+    padding-top: spacing($size);
+    padding-bottom: spacing($size);
+  } @else if ($direction == top) {
+    padding-top: spacing($size);
+  } @else if ($direction == bottom) {
+    padding-bottom: spacing($size);
+  } @else if ($direction == left) {
+    padding-left: spacing($size);
+  } @else if ($direction == right) {
+    padding-right: spacing($size);
+  } @else {
+    @error "padding(#{$direction}) is not valid";
+  }
+}

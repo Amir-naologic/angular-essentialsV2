@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form [formGroup]="searchForm">
+
+                <div class="mb-3">
+                    <input
+                            type="search"
+                            class="form-control"
+                            formControlName="search"
+                            placeholder="🔍 Search breweries..."
+                    />
+                </div>
+
+                <div *ngIf="isLoading" class="alert alert-info py-2">
+                    Loading results...
+                </div>
+
+                <div *ngIf="errorMessage" class="alert alert-danger py-2">
+                    {{ errorMessage }}
+                </div>
+
+                <pre class="bg-light p-3 rounded border text-black" style="max-height: 400px; overflow-y: auto;">
+{{ data | json }}
+            </pre>
+            </form>
+        </div>
+    </div>
+</div>

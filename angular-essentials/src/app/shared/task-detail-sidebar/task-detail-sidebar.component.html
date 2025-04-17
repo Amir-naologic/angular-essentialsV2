@@ -1,0 +1,134 @@
+<div class="overlay"
+        [class.enter]="animationState === 'enter' && !hasAnimatedIn"
+        [class.leave]="animationState === 'leave'"
+        (click)="closeSidebar(); $event.stopPropagation()"
+        (animationend)="onAnimationEnd($event)"
+></div>
+<div
+        class="sidebar"
+        [class.enter]="animationState === 'enter' && !hasAnimatedIn"
+        [class.leave]="animationState === 'leave'"
+        (click)="$event.stopPropagation()"
+        (animationend)="onAnimationEnd($event)"
+>
+    <div class="sidebar-wrapper nao-pt-16">
+        <div class="sidebar-header flex space-between align-center nao-px-24 nao-pb-16">
+            <div>
+                <p class="font-medium text-20 sidebar-header-title-color nao-pb-5 line-height-1 nao-m-0">
+                    Mega Electronix
+                </p>
+                <span class="default-text">Edit task</span>
+            </div>
+
+            <div class="flex space-between nao-gap-8">
+                <button class="nao-action-btn sidebar-header-title-color">⋯</button>
+                <button class="nao-action-btn sidebar-header-title-color" (click)="closeSidebar(); $event.stopPropagation()">
+                    Close
+                </button>
+            </div>
+        </div>
+
+        <hr class="hr nao-w-100">
+
+        <div class="flex nao-gap-8 nao-pb-8 nao-pt-7 nao-px-24 nao-my-3">
+            <app-view-toggle-buttons
+                    label="Details"
+                    icon="assets/icons/table.svg"
+                    iconActive="assets/icons/active-table.svg"
+                    [isActive]="activeView === 'details'"
+                    (clicked)="setActiveView('details')"
+            />
+            <app-view-toggle-buttons
+                    label="Activity"
+                    icon="assets/icons/activity.svg"
+                    iconActive="assets/icons/active-activity.svg"
+                    [isActive]="activeView === 'activity'"
+                    (clicked)="setActiveView('activity')"
+            />
+            <app-view-toggle-buttons
+                    label="Comments"
+                    icon="assets/icons/calendar.svg"
+                    iconActive="assets/icons/active-calendar.svg"
+                    [isActive]="activeView === 'comments'"
+                    (clicked)="setActiveView('comments')"
+            />
+            <app-view-toggle-buttons
+                    label="Attachments"
+                    icon="assets/icons/attachments.svg"
+                    iconActive="assets/icons/active-attachments.svg"
+                    [isActive]="activeView === 'attachments'"
+                    (clicked)="setActiveView('attachments')"
+            />
+        </div>
+
+        <hr class="hr nao-w-100">
+
+        <div class="nao-p-24">
+            <div class="logic-pilot-banner flex align-center nao-gap-12 nao-py-10 nao-pl-2 radius-6 default-text">
+                <img src="assets/icons/star.svg" alt="Ask Logic Pilot">
+                <div>Ask Logic Pilot to generate subtasks or to summarize comments</div>
+            </div>
+        </div>
+
+        <div class="nao-px-24">
+
+            <div class="sidebar-info-grid align-center">
+                <div class="flex align-center default-text nao-gap-6 nao-py-4">
+                    <img src="assets/icons/status.svg" alt="Status" class="nao-w-10 nao-h-10" />
+                    <span class="line-height-1">Status</span>
+                </div>
+                <div class="nao-ml-8">
+                    <span class="status-pill radius-5 nao-text-muted text-14 font-heavy nao-py-2 nao-px-8">Unpaid</span>
+                </div>
+
+                <div class="flex align-center default-text nao-gap-6 nao-py-4">
+                    <img src="assets/icons/person.svg" alt="Person" class="nao-w-10 nao-h-10" />
+                    <span class="line-height-1">Assignee</span>
+                </div>
+                <div class="additional-data radius-5">
+                    <span>Florin Galan</span>
+                </div>
+
+                <div class="flex align-center default-text nao-gap-6 nao-py-4">
+                    <img src="assets/icons/date.svg" alt="Due Date" class="nao-w-10 nao-h-10" />
+                    <span class="line-height-1">Due date</span>
+                </div>
+                <div class="additional-data radius-5">
+                    <span>Sep 10, 2024</span>
+                </div>
+
+                <div class="flex align-center default-text nao-gap-6 nao-py-4">
+                    <img src="assets/icons/urgent.svg" alt="Importance" class="nao-w-12 nao-h-12" />
+                    <span class="line-height-1">Importance</span>
+                </div>
+                <div class="additional-data radius-5">
+                    <span>Very urgent</span>
+                </div>
+
+                <div class="flex align-center default-text nao-gap-6 nao-py-4">
+                    <img src="assets/icons/multi-person.svg" alt="Created By" class="nao-w-12 nao-h-12" />
+                    <span class="line-height-1">Created by</span>
+                </div>
+                <div class="additional-data radius-5">
+                    <span>Oliver A</span>
+                </div>
+
+                <div class="flex align-center default-text nao-gap-6 nao-py-4">
+                    <img src="assets/icons/copy.svg" alt="Customer Name" class="nao-w-12 nao-h-12" />
+                    <span class="line-height-1">Customer name</span>
+                </div>
+                <div class="additional-data radius-5">
+                    <span>Mega Electronix</span>
+                </div>
+
+                <div class="flex align-center default-text nao-gap-6 nao-py-4">
+                    <img src="assets/icons/calculator.svg" alt="Invoice ID" class="nao-w-12 nao-h-12" />
+                    <span class="line-height-1">Invoice ID</span>
+                </div>
+                <div class="additional-data radius-5">
+                    <span>19823190</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

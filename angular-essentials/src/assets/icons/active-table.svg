@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="13">
+	<path fill="none" stroke="#3E40DB" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="translate(0.5 0.5)" d="M0 1.5C0 0.67157286 0.67157286 0 1.5 0L10.5 0C11.328427 0 12 0.67157286 12 1.5L12 10.5C12 11.328427 11.328427 12 10.5 12L1.5 12C0.67157286 12 0 11.328427 0 10.5L0 1.5Z" fill-rule="evenodd"/>
+	<path fill="none" stroke="#3E40DB" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="translate(0.5 6.125)" d="M0 0.375L12 0.375" fill-rule="evenodd"/>
+	<path fill="none" stroke="#3E40DB" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="translate(6.125 0.5)" d="M0.375 0L0.375 12" fill-rule="evenodd"/>
+</svg>

@@ -1,0 +1,93 @@
+<div class="flex align-start nao-gap-12">
+    <div class="flex align-start">
+        <div *ngIf="isMinimized" class="status-badge radius-8 font-medium text-14 nao-mr-18 nao-text-muted nao-px-8">
+            <img src="assets/icons/expand.svg" alt="Icon"
+                 class="nao-w-12 nao-h-6 pointer nao-mt-17 nao-mb-16"
+                 (click)="toggleMinimize()"
+            />
+            <span>{{ tasks[0].data }}</span>
+            <span class="default-text nao-mt-8 nao-mb-8">{{ tasks.length }}</span>
+        </div>
+
+        <div *ngIf="!isMinimized" class="column-container flex flex-col radius-8 nao-gap-8 nao-p-12">
+            <form [formGroup]="taskForm">
+                <div class="flex space-between align-center">
+                    <div class="flex align-center">
+                        <input
+                                class="column-header__title text_input_hover
+                                nao-py-2 nao-px-8 radius-5 nao-mr-4 line-height-1 text-14"
+                                type="text"
+                                placeholder="Write a task..."
+                                formControlName="task"
+                        />
+                        <span class="default-text">4</span>
+                    </div>
+
+                    <div class="flex nao-gap-6">
+                        <button (click)="toggleMinimize()" class="column-header__icon flex align-center center-x radius-5 nao-p-8 nao-w-24 nao-h-24 nao-p-6 nao-ml-22">
+                            <img src="assets/icons/collapse.svg" alt="Collapse"/>
+                        </button>
+
+                        <div class="relative">
+                            <button (click)="onToggleDropdown()"
+                                    class="column-header__icon flex align-center center-x radius-5 nao-p-8 nao-w-24 nao-h-24 nao-p-6"
+                            >
+                                <img src="assets/icons/more.svg" alt="More"/>
+                            </button>
+
+                            <app-configure-single-task
+                                #dropdownCmp
+                                class="app-configure-single-task__component absolute z-top"
+                                [items]="dropdownItems"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-list nao-my-2" #taskContainer>
+                    <div
+                            *ngFor="let task of tasks"
+                            class="draggable"
+                    >
+                        <input
+                                class="column-header__title nao-py-4 nao-px-8 radius-5 nao-mr-4
+                                 line-height-1 text-14 nao-mb-8 grab no-select"
+                                type="text"
+                                [value]="task.data"
+                                readonly
+                        />
+                    </div>
+                </div>
+
+                <button class="column-add-task font-medium radius-5 nao-px-8
+            nao-py-5 nao-gap-6 line-height-1 pointer nao-w-100 flex align-center nao-text-muted"
+                        [class.nao-disabled]="taskForm.invalid"
+                        (click)="addTask()"
+                        [disabled]="taskForm.invalid">
+                    <img src="assets/icons/plus.svg" alt="Add" class="nao-w-10 nao-h-10"/>
+                    <span class="default-text">Add task</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="flex nao-gap-8">
+        <div
+                class="relative"
+                *ngFor="let group of groups; let i = index"
+        >
+            <button
+                    class="add-group-button nao-gap-6 nao-py-4 nao-px-8 radius-5 nao-h-24 default-text"
+                    (click)="openForm(i)"
+            >
+                <img src="assets/icons/plus.svg" alt="Add" class="nao-h-10 nao-w-10" />
+                <span class="add-group-button__text">Add group</span>
+            </button>
+
+            <div class="group-form-position absolute nao-mt-5 z-top" *ngIf="activeForm === i">
+                <app-add-group></app-add-group>
+            </div>
+        </div>
+    </div>
+
+</div>

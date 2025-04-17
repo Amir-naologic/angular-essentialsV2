@@ -1,0 +1,100 @@
+<div class="flex nao-gap-8 swimLanes">
+    <div
+            class="draggable-column"
+            *ngFor="let section of taskSections; let i = index"
+            [attr.data-section-id]="section.id"
+    >
+        <div class="task-column radius-12 nao-px-12 nao-pt-12 nao-pb-18 flex flex-col align-center swimlane-rotate">
+            <div class="flex align-center nao-w-100 nao-px-7">
+                    <span
+                            *ngIf="!section.editing"
+                            class="text-14 text-heading section-title"
+                            (click)="enableEdit(section)"
+                    >
+                        {{ section.title }}
+                    </span>
+
+                <input
+                        *ngIf="section.editing"
+                        type="text"
+                        class="text-14 column-header__title text_input_hover
+                            line-height-1 text-14 nao-py-2 nao-px-8 radius-5"
+                        [value]="section.title"
+                        (keyup.enter)="disableEdit(section, $event)"
+                        (blur)="disableEdit(section, $event)"
+                        autofocus
+                />
+
+                <span class="nao-text-muted text-14 font-regular nao-ml-4">
+                        {{ ticketCounter[section.id] || 0 }}
+                </span>
+
+                <div class="pointer flex align-center center-x nao-p-8 radius-4 nao-h-24 nao-w-24"
+                     style="margin-left: auto;">
+                    <img
+                            src="assets/icons/three_dots.svg"
+                            alt="More options"
+                            class="nao-w-20 nao-h-6 nao-text-muted"
+                    />
+                </div>
+            </div>
+
+            <div class="nao-mt-6 taskInfos">
+                <div class="draggable">
+                    <div class="task-card flex flex-col radius-8 nao-p-8 nao-mx-3 nao-mt-8 task-rotate"
+                         (click)="showSidebar()">
+                        <div class="task-card__header flex space-between align-center">
+                            <span class="font-regular text-14 text-heading line-height-1 pointer">
+                                Mega Electronix
+                            </span>
+                            <div class="task-card__config-wrapper relative inline-block">
+                                <div
+                                        class="more radius-4 nao-h-24 nao-w-24 pointer flex align-center center-x"
+                                        (click)="onToggleDropdown(section.id); $event.stopPropagation()"
+                                >
+                                    <img src="assets/icons/three_dots.svg" alt="More options"/>
+                                </div>
+
+                                <app-configure-single-task
+                                    #dropdownCmp
+                                    class="app-configure-single-task__component absolute z-top"
+                                    [items]="dropdownItems"
+                                />
+                            </div>
+                        </div>
+                        <span class="text-14 nao-text-muted nao-mt-4 nao-mb-8 line-height-1 pointer">
+                            $32,213
+                        </span>
+
+                        <ul class="task-card__meta flex flex-col list-style-none nao-w-100 relative">
+                            <li
+                                    class="dropdown-wrapper relative pointer radius-5 no-select"
+                                    *ngFor="let item of menuItems"
+                                    (click)="toggleDropdown(section, item.key); $event.stopPropagation()"
+                            >
+                                <div
+                                        class="default-text nao-gap-6 nao-pt-5 nao-pb-5 nao-pl-2 flex align-center line-height-1"
+                                >
+                                    <img [src]="item.icon" class="nao-w-10 nao-h-10"/>
+                                    {{ item.label }}
+                                </div>
+
+                                <app-single-task-information
+                                        class="absolute radius-8 z-top nao-mt-5 nao-w-100"
+                                        *ngIf="section.activeDropdown === item.key"
+                                        [show]="true"
+                                        [options]="item.options"
+                                ></app-single-task-information>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <app-task-detail-sidebar
+                        *ngIf="sidebarMounted"
+                        [animationState]="animationState"
+                        (close)="hideSidebar()"
+                />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>date</title>
+    <g id="-------→-Builder-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Kanban---Default-View" transform="translate(-449, -362)" stroke="#687196">
+            <g id="date" transform="translate(450, 363)">
+                <circle id="Oval" cx="5" cy="5" r="5"></circle>
+                <polyline id="Path" points="5 4 5 5.875 7 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

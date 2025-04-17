@@ -1,0 +1,5 @@
+<button class="nao-view-btns" [class.active]="isActive" (click)="handleClick()">
+    <img [src]="icon" class="icon-default" />
+    <img [src]="iconActive" class="icon-active" />
+    <span>{{ label }}</span>
+</button>
