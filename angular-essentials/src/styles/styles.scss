@@ -28,7 +28,6 @@
   --light-purple-border-color: #AAAFFF;
   --status-badge-color: #4a4e69;
   --column-background-color: rgba(241, 243, 248, 0.5);
-  --column-bg: rgba(241, 243, 248, 1);
   --column-border-color: rgba(233, 238, 249, 1);
   --primary-color-light-10: rgba(62, 64, 219, 0.1);
 
@@ -123,7 +122,7 @@ body.dark-mode {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--column-border-color);
-  background-color: var(--column-background-color);
+  background-color: rgba(241, 243, 248, 0.5);
   box-sizing: border-box;
   line-height: 1
 }
@@ -133,7 +132,7 @@ body.dark-mode {
 .column-container {
   max-width: 100%;
   border: 1px solid var(--column-border-color);
-  background-color: var(--column-background-color);
+  background-color: rgba(241, 243, 248, 0.5);
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -146,13 +145,17 @@ body.dark-mode {
   outline: none;
   min-width: 0;
   width: 151px;
-  border: 1px solid var(--light-purple-border-color);
+  border: 1px solid rgba(170, 175, 255, 1);
   box-shadow: var(--white-box-shadow);
   opacity: 1;
   background-color: var(--white);
   font-size: 14px;
   color: var(--text-heading);
   line-height: 1;
+
+  &:focus {
+    border-color: rgba(126, 113, 247, 0.6);
+  }
 }
 
 // *****************************************************
@@ -168,7 +171,13 @@ body.dark-mode {
 // *****************************************************
 // Column Add Task
 .column-add-task {
+  width: 100%;
+  display: flex;
+  align-items: center;
   background-color: var(--card-config-gray-color);
+  color: #6c7185;
+  cursor: pointer;
+  line-height: 1;
 }
 
 // *****************************************************
@@ -176,12 +185,12 @@ body.dark-mode {
 .add-group-button {
   display: inline-flex;
   align-items: center;
-  color: var(--text-muted);
+  color: #6c7185;
   background-color: transparent;
   border: none;
 
   &:hover {
-    background-color: var(--column-bg);
+    background-color: rgba(241, 243, 248, 1);
     box-shadow: var(--white-box-shadow);
   }
 }
@@ -189,8 +198,11 @@ body.dark-mode {
 // *****************************************************
 // Group Form Position
 .group-form-position {
+  position: absolute;
   top: 100%;
   left: 0;
+  margin-top: 5px;
+  z-index: 999;
 }
 
 
@@ -201,16 +213,22 @@ body.dark-mode {
   border: 1px solid var(--column-border-color);
   width: 264px;
   max-width: 100%;
+
+    .task-column__title {
+      color: var(--text-heading);
+      font-size: 14px;
+    }
 }
 
 // *****************************************************
 // Task Card
 .task-card {
   background: var(--white);
-  border: 1px solid navy;
+  border: 1px solid var(--column-border-color);
   box-shadow: var(--card-config-box-shadow);
   width: 240px;
   max-width: 100%;
+  margin: 12px 12px 2px 12px;
 
   .task-card__header {
 
@@ -219,6 +237,7 @@ body.dark-mode {
       .app-configure-single-task__component {
         top: 30px;
         left: 0;
+        z-index: 999;
         min-width: 180px;
       }
     }
@@ -234,6 +253,7 @@ body.dark-mode {
       align-items: center;
 
       &:hover {
+        border-radius: 5px;
         background-color: var(--card-config-gray-color);
         cursor: pointer;
       }
@@ -251,6 +271,7 @@ body.dark-mode {
   border: 1px solid var(--group-form-border);
 
   .group-form__input {
+    line-height: 20px;
     border: 1px solid var(--light-purple-border-color);
     outline: none;
     box-shadow: var(--white-box-shadow);
@@ -304,9 +325,10 @@ body.dark-mode {
 .dropdown-panel {
   top: 100%;
   left: 0;
-  border: 1px solid var(--card-config-border-color);
-  box-shadow: var(--card-config-box-shadow);
-  background-color: var(--white);
+  border: 1px solid rgba(104, 113, 150, 0.1);
+  box-shadow: 0 4.5px 5px -1px rgba(216, 220, 235, 1),
+  0px 2.5px 3px -1.5px rgba(200, 207, 233, 1);
+  background-color: #fff;
 
   ul {
     list-style: none;
@@ -316,7 +338,7 @@ body.dark-mode {
 
   .dropdown-panel__item {
     &:hover {
-      background-color: var(--card-config-gray-color);
+      background-color: #f1f3f8;
     }
   }
 }
@@ -333,20 +355,23 @@ body.dark-mode {
     user-select: none;
 
     &:hover {
-      background-color: var(--column-background-color);
+      background-color: rgba(241, 243, 248, 0.5);
     }
 
     app-single-task-information {
       top: 100%;
       left: 0;
-      background-color: var(--white);
-      box-shadow: var(--card-config-box-shadow);
+      background-color: #fff;
+      box-shadow:
+              0 4.5px 5px -1px rgba(216, 220, 235, 1),
+              0px 2.5px 3px -1.5px rgba(200, 207, 233, 1);
     }
   }
 }
 // *****************************************************
 // Task Card Meta Dropdown
 .color-box {
+  padding: 1px;
   border: 1px solid transparent;
 
   &:hover,
