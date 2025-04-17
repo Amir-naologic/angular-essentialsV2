@@ -27,8 +27,6 @@
   --text-heading: #030929;
   --light-purple-border-color: #AAAFFF;
   --status-badge-color: #4a4e69;
-  --card-config-gray-color: #F1F3F8;
-  --card-config-divider: #a9acaf;
   --column-background-color: rgba(241, 243, 248, 0.5);
   --column-bg: rgba(241, 243, 248, 1);
   --column-border-color: rgba(233, 238, 249, 1);
@@ -37,14 +35,12 @@
 
   --view-btn-bg: rgba(241, 243, 248, 0.75);
   --view-btn-bg-hover: rgba(225, 227, 233, 0.75);
+  --card-config-gray-color: #F1F3F8;
+  --card-config-divider: #a9acaf;
   --card-config-border-color: rgba(104, 113, 150, 0.1);
   --group-form-border: rgba(104, 113, 150, 0.3);
   --card-config-box-shadow: 0 4.5px 5px -1px rgba(216, 220, 235, 1), 0 2.5px 3px -1.5px rgba(200, 207, 233, 1);
   --white-box-shadow:  0 1px 0.5px -1px rgba(216, 220, 235, 1), 0 1.5px 3px -1.5px rgba(200, 207, 233, 1);
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
 }
 
 body{
@@ -128,6 +124,7 @@ body.dark-mode {
   justify-content: center;
   border: 1px solid var(--column-border-color);
   background-color: var(--column-background-color);
+  box-sizing: border-box;
   line-height: 1
 }
 
@@ -138,6 +135,9 @@ body.dark-mode {
   border: 1px solid var(--column-border-color);
   background-color: var(--column-background-color);
   opacity: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 // *****************************************************
@@ -150,7 +150,9 @@ body.dark-mode {
   box-shadow: var(--white-box-shadow);
   opacity: 1;
   background-color: var(--white);
+  font-size: 14px;
   color: var(--text-heading);
+  line-height: 1;
 }
 
 // *****************************************************
@@ -158,6 +160,9 @@ body.dark-mode {
 .column-header__icon {
   background-color: var(--card-config-gray-color);
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // *****************************************************
@@ -202,6 +207,7 @@ body.dark-mode {
 // Task Card
 .task-card {
   background: var(--white);
+  border: 1px solid navy;
   box-shadow: var(--card-config-box-shadow);
   width: 240px;
   max-width: 100%;
