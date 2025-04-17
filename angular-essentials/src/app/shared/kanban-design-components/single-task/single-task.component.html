@@ -1,4 +1,4 @@
-<div class="task-column radius-xl nao-px-3 nao-py-4 flex flex-col align-center">
+<div class="task-column radius-xl nao-p-3 flex flex-col align-center">
     <div class="flex space-between nao-px-2 nao-w-100">
         <span class="task-column__title">Unpaid</span>
         <span class="nao-text-muted text-md font-regular nao-ml-8">4</span>
@@ -9,7 +9,7 @@
 
     <div class="task-card radius-lg nao-py-2 nao-px-3 flex flex-col">
         <div class="task-card__header flex space-between align-center">
-            <span class="font-regular text-md text-heading line-height-1">Mega Electronix</span>
+            <span class="task-card__title default-text">Mega Electronix</span>
             <div class="task-card__config-wrapper relative inline-block">
                 <div class="nao-bg-gray-card radius-sm nao-h-24 nao-w-24 pointer flex align-center center-x"
                      (click)="onToggleDropdown()">
@@ -22,7 +22,7 @@
                 />
             </div>
         </div>
-        <span class="text-md nao-text-muted nao-mt-1 nao-mb-2 line-height-1">$32,213</span>
+        <span class="text-md nao-text-muted nao-mt-1 nao-mb-3">$32,213</span>
 
         <ul class="task-card__meta flex flex-col list-style-none nao-w-100 relative">
             <li
@@ -30,7 +30,7 @@
                     *ngFor="let item of menuItems"
                     (click)="toggleDropdown(item.key)"
             >
-                <div class="default-text nao-gap-6 nao-pt-5px nao-pb-1-5 nao-pl-2 flex align-center line-height-1">
+                <div class="default-text nao-gap-6 nao-pt-1 nao-pb-1 nao-pl-2 flex align-center">
                     <img [src]="item.icon" class="nao-w-14 nao-h-14" />
                     {{ item.label }}
                 </div>

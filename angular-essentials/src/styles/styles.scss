@@ -29,7 +29,6 @@
   --status-badge-color: #4a4e69;
   --column-background-color: rgba(241, 243, 248, 0.5);
   --column-border-color: rgba(233, 238, 249, 1);
-  --primary-color-light-10: rgba(62, 64, 219, 0.1);
 
 
   --view-btn-bg: rgba(241, 243, 248, 0.75);
@@ -123,7 +122,6 @@ body.dark-mode {
   border: 1px solid var(--column-border-color);
   background-color: rgba(241, 243, 248, 0.5);
   box-sizing: border-box;
-  line-height: 1
 }
 
 // *****************************************************
@@ -150,6 +148,7 @@ body.dark-mode {
   background-color: var(--white);
   font-size: 14px;
   color: var(--text-heading);
+  vertical-align: middle;
   line-height: 1;
 
   &:focus {
@@ -162,6 +161,7 @@ body.dark-mode {
 .column-header__icon {
   background-color: var(--card-config-gray-color);
   border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,7 +176,6 @@ body.dark-mode {
   background-color: var(--card-config-gray-color);
   color: #6c7185;
   cursor: pointer;
-  line-height: 1;
 }
 
 // *****************************************************
@@ -200,7 +199,7 @@ body.dark-mode {
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 5px;
+  margin-top: 8px;
   z-index: 999;
 }
 
@@ -227,7 +226,7 @@ body.dark-mode {
   box-shadow: var(--card-config-box-shadow);
   width: 240px;
   max-width: 100%;
-  margin: 12px 12px 2px 12px;
+  margin: 12px 12px 0 12px;
 
   .task-card__header {
 
@@ -365,16 +364,5 @@ body.dark-mode {
               0 4.5px 5px -1px rgba(216, 220, 235, 1),
               0px 2.5px 3px -1.5px rgba(200, 207, 233, 1);
     }
-  }
-}
-// *****************************************************
-// Task Card Meta Dropdown
-.color-box {
-  padding: 1px;
-  border: 1px solid transparent;
-
-  &:hover,
-  &:active {
-    border-color: var(--color);
   }
 }

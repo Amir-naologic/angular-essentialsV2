@@ -1,10 +1,12 @@
 // *****************************************************
 // Margin
-.nao-m-4  { margin: 4px; }
-.nao-m-8  { margin: 8px; }
-.nao-m-12  { margin: 12px; }
-.nao-m-16  { margin: 16px; }
-.nao-m-20  { margin: 20px; }
+.nao-m-1  { margin: 4px; }
+.nao-m-2  { margin: 8px; }
+.nao-m-3  { margin: 12px; }
+.nao-m-4  { margin: 16px; }
+.nao-m-5  { margin: 20px; }
+.nao-m-6  { margin: 24px; }
+.nao-m-8  { margin: 32px; }
 
 .nao-mt-1 { margin-top: 4px; }
 .nao-mt-2 { margin-top: 8px; }
@@ -30,13 +32,14 @@
 .nao-ml-6 { margin-left: 24px; }
 .nao-ml-8 { margin-left: 32px; }
 
-.nao-mr-4 { margin-right: 4px; }
-.nao-mr-6 { margin-right: 6px; }
-.nao-mr-8 { margin-right: 8px; }
-.nao-mr-12 { margin-right: 12px; }
-.nao-mr-16 { margin-right: 16px; }
-.nao-mr-18 { margin-right: 18px; }
-.nao-mr-20 { margin-right: 20px; }
+.nao-mr-1 { margin-right: 4px; }
+.nao-mr-2 { margin-right: 8px; }
+.nao-mr-3 { margin-right: 12px; }
+.nao-mr-4 { margin-right: 16px; }
+.nao-mr-5 { margin-right: 18px; }
+.nao-mr-6 { margin-right: 20px; }
+.nao-mr-7 { margin-right: 24px; }
+.nao-mr-8 { margin-right: 32px; }
 
 .nao-mx-1 { margin-left: 4px; margin-right: 4px; }
 .nao-mx-2 { margin-left: 8px; margin-right: 8px; }
@@ -65,8 +68,6 @@
 .nao-p-8  { padding: 32px; }
 
 .nao-pt-1 { padding-top: 4px; }
-.nao-pt-5px { padding-top: 5px; }
-.nao-pt-7px { padding-top: 7px; }
 .nao-pt-2 { padding-top: 8px; }
 .nao-pt-3 { padding-top: 12px; }
 .nao-pt-4 { padding-top: 16px; }
@@ -75,8 +76,6 @@
 .nao-pt-8 { padding-top: 32px; }
 
 .nao-pb-1 { padding-bottom: 4px; }
-.nao-pb-1-5 { padding-bottom: 5px; }
-.nao-pb-7px { padding-bottom: 7px; }
 .nao-pb-2 { padding-bottom: 8px; }
 .nao-pb-3 { padding-bottom: 12px; }
 .nao-pb-4 { padding-bottom: 16px; }
@@ -102,7 +101,6 @@
 
 .nao-px-1 { padding-left: 4px; padding-right: 4px; }
 .nao-px-2 { padding-left: 8px; padding-right: 8px; }
-.nao-px-10px { padding-left: 10px; padding-right: 10px; }
 .nao-px-3 { padding-left: 12px; padding-right: 12px; }
 .nao-px-4 { padding-left: 16px; padding-right: 16px; }
 .nao-px-5 { padding-left: 20px; padding-right: 20px; }
@@ -110,9 +108,7 @@
 .nao-px-8 { padding-left: 32px; padding-right: 32px; }
 
 .nao-py-1 { padding-top: 4px; padding-bottom: 4px; }
-.nao-py-6px { padding-top: 6px; padding-bottom: 6px; }
 .nao-py-2 { padding-top: 8px; padding-bottom: 8px; }
-.nao-py-9px { padding-top: 9px; padding-bottom: 9px; }
 .nao-py-3 { padding-top: 12px; padding-bottom: 12px; }
 .nao-py-4 { padding-top: 16px; padding-bottom: 16px; }
 .nao-py-5 { padding-top: 20px; padding-bottom: 20px; }
@@ -129,9 +125,6 @@
 .nao-gap-6{
   gap: 6px
 }
-.nao-gap-7{
-  gap: 7px
-}
 .nao-gap-8{
   gap: 8px
 }
@@ -139,7 +132,7 @@
   gap: 10px
 }
 .nao-gap-12 {
-  gap: 12px;
+  gap: 12px
 }
 .nao-gap-16 {
   gap: 16px

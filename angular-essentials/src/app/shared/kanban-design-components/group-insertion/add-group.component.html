@@ -1,23 +1,18 @@
-<div class="group-form radius-md flex flex-col nao-p-2" style="border: 1px solid rgba(104, 113, 150, 0.3);">
+<div class="group-form radius-md nao-p-2 nao-gap-16 flex flex-col">
     <label class="nao-ml-2 font-medium text-md text-heading">Group name</label>
 
     <input
             type="text"
-            class="group-form__input nao-p-2 text-md text-heading radius-md nao-mb-3 nao-mt-4"
+            class="group-form__input nao-p-2 text-md text-heading radius-md"
             placeholder="Overdu..."
     />
 
     <div class="flex nao-gap-8 wrap">
-        <div
-                class="color-box nao-w-28 nao-h-28 radius-md pointer"
-                *ngFor="let color of colors"
-                [ngStyle]="{ '--color': hexToRgba(color, 0.75) }"
-        >
-            <div
-                    class="nao-w-100 nao-h-100 radius-md"
-                    [ngStyle]="{ backgroundColor: color }"
-            ></div>
+        <div class="nao-w-28 nao-h-28 radius-md pointer"
+             *ngFor="let color of colors"
+             [ngStyle]="{ backgroundColor: color }">
         </div>
     </div>
-    <button class="group-form__save-btn nao-p-2 radius-md text-sm font-medium nao-mt-4 nao-mb-1">Save</button>
+
+    <button class="group-form__save-btn nao-p-2 radius-md text-sm font-medium">Save</button>
 </div>
