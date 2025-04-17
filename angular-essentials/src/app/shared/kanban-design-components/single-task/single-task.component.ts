@@ -6,16 +6,16 @@ import {
     OnDestroy,
     PLATFORM_ID,
     QueryList,
+    ViewChild,
     ViewChildren
 } from '@angular/core';
 import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ConfigureSingleTaskComponent } from "../dropdown/configure-single-task.component";
 import { SingleTaskInformationComponent } from "../single-task-information/single-task-information.component";
 import { DropdownItems, MenuItems, TaskSection } from "../../utils/utils";
+import type { Draggable as DraggableType } from '@shopify/draggable';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TaskDetailSidebarComponent } from "../../task-detail-sidebar/task-detail-sidebar.component";
-import { Sortable, Plugins } from '@shopify/draggable'
-import type { Draggable as DraggableType } from '@shopify/draggable';
 
 @Component({
     selector: 'app-single-task',
@@ -217,6 +217,8 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
             this.draggableColumns.destroy();
         }
 
+        // -->Import: Dynamically Sortable and its Plugins.
+        const { Sortable, Plugins } = await import('@shopify/draggable');
         const { SwapAnimation, ResizeMirror } = Plugins;
 
         // -->Create: Sortable
@@ -243,10 +245,9 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
         // -->Set: On mirror destroy update DOM counts and reinitialize draggable instances.
         this.draggableColumns.on('mirror:destroy', (event: any) => {
             event.mirror.classList.remove('is-column');
-            setTimeout((): void => {
+            setTimeout(() => {
                 this.updateCardCounts();
-                this.setCardsDraggable();
-                this.setColumnsDraggable();
+                this.scheduleReinitialize();
             }, 0);
         });
     }
@@ -265,10 +266,12 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
             this.draggableColumns.destroy();
         }
 
+        // -->Import: Dynamically Sortable and its Plugins.
+        const { Sortable, Plugins } = await import('@shopify/draggable');
         const { ResizeMirror } = Plugins;
 
         // -->Create: Sortable
-        this.draggableCards = new Sortable(this.document.querySelectorAll('.task-column'), {
+        this.draggableCards = new Sortable(this.document.querySelectorAll('.taskInfos'), {
             draggable: '.draggable',
             delay: 100,
             mirror: {
@@ -278,9 +281,11 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
         });
 
         // -->Set: On drag start, destroy columns draggable instance if exists.
-        this.draggableCards.on('drag:start', (): void => {
-            this.draggableColumns?.destroy();
-            this.draggableColumns = null;
+        this.draggableCards.on('drag:start', () => {
+            if (this.draggableColumns) {
+                this.draggableColumns.destroy();
+                this.draggableColumns = null;
+            }
         });
 
         // -->Set: On mirror create and add a styling class.
@@ -290,14 +295,26 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
         });
 
         // -->Set: On mirror destroy update DOM counts and reinitialize draggable instances.
-        this.draggableCards.on('mirror:destroy', (event: any): void => {
+        this.draggableCards.on('mirror:destroy', (event: any) => {
             event.mirror.classList.remove('is-card');
-            setTimeout((): void => {
+            setTimeout(() => {
                 this.updateCardCounts();
-                this.setCardsDraggable();
-                this.setColumnsDraggable();
+                this.scheduleReinitialize();
             }, 0);
         });
+    }
+
+    /**
+     * Schedule the reinitialization of draggable instances to keep them in sync with DOM changes.
+     */
+    private scheduleReinitialize(): void {
+        if (this.reinitTimer) {
+            clearTimeout(this.reinitTimer);
+        }
+        this.reinitTimer = setTimeout(() => {
+            this.setCardsDraggable();
+            this.setColumnsDraggable();
+        }, 100);
     }
 
     /**
@@ -311,6 +328,12 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
 
             // -->Run: an initial count of tasks for each swimlane.
             this.updateCardCounts();
+
+            // -->Subscribe: to changes in task information elements.
+            this.taskInfos.changes.subscribe(() => this.scheduleReinitialize());
+
+            // -->Subscribe: to changes in swimlane elements.
+            this.swimLanes.changes.subscribe(() => this.scheduleReinitialize());
         }
     }
 
@@ -349,8 +372,8 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
                 return;
             }
 
-            // -->Get: container with the cards within the swimlane
-            const taskInfo = colEl.querySelector('.task-column');
+            // -->Get: container with the tasks within this swimlane
+            const taskInfo = colEl.querySelector('.taskInfos');
             if (!taskInfo) {
                 // -->Set: count to 0
                 this.ticketCounter[sectionId] = 0;
@@ -358,11 +381,20 @@ export class SingleTaskComponent implements AfterViewInit, OnDestroy {
                 return;
             }
 
-            // -->Get: all elements with the 'draggable' class inside this swimlane
+            // -->Get: all elements with the 'draggable' class inside this task container
             const allDraggables = Array.from(taskInfo.querySelectorAll('.draggable'));
 
+            // -->Filter: any elements that have modifier classes
+            const realCards = allDraggables.filter((draggable) => {
+                const classListString = draggable.classList.toString();
+                const hasModifierClass = classListString.includes('draggable--');
+
+                // -->Ensure the draggable is actually within this taskInfo element
+                return !hasModifierClass && draggable.closest('.taskInfos') === taskInfo;
+            });
+
             // -->Store: the count for this section based on its unique id
-            this.ticketCounter[sectionId] = allDraggables.length;
+            this.ticketCounter[sectionId] = realCards.length;
         });
     }
 
